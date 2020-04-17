@@ -27,6 +27,14 @@
   }
 }
 
+.error-message {
+  font-size: 18px;
+  color: $gray;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
 // add-book-areaのcssは 「_user-show.scss」と同じ
 
 .book-index {
