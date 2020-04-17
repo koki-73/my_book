@@ -30,7 +30,7 @@
 }
 
 .book-index {
-  @include book_index
+  @include book_index;
   min-height: 70vh;
 }
 
