@@ -6,4 +6,9 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   validates :title, uniqueness: {scope: :author}
+
+  def self.search(search)
+    return Book.all unless search
+    Book.where('title LIKE(?) OR author LIKE(?)', "%#{search}%", "%#{search}%")
+  end
 end
