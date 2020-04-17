@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: my_book_production
-  username: my_book
-  password: <%= ENV['MY_BOOK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # ↓元の記述
+  # database: my_book_production
+  # username: my_book
+  # password: <%= ENV['MY_BOOK_DATABASE_PASSWORD'] %>
