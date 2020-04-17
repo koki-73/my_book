@@ -17,7 +17,7 @@
         = f.collection_select :third_book_id, books, :id, :title
     .submit-btn
       - if best_book.user_id
-        = f.submit "更新"
+        = f.submit "更新", class: "btn"
       - else
-        = f.submit "登録"
+        = f.submit "登録", class: "btn"
         
