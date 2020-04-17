@@ -5,6 +5,9 @@
     %input{type: "text", class: "text-box"}
     %input{type: "submit", value: "検索", class: "search-btn"}
 
+.add-book-area
+  = link_to "本を追加する", new_book_path, class: "add-book-btn"
+
 .book-index
   = render @books
 

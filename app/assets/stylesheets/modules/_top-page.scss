@@ -29,9 +29,12 @@
   }
 }
 
+// add-book-areaのcssは 「_user-show.scss」と同じ
+
 .book-index {
   @include book_index;
   min-height: 80vh;
+  margin-top: 10px;
 }
 
 .footer {
