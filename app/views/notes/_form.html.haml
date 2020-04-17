@@ -1,0 +1,29 @@
+.note-form-page
+  .book-title
+    = link_to book.title, book_notes_path(book.id), class: "book-title-link"
+
+  .note-form
+    = form_with(model: [book, note], local: true) do |f|
+
+      .summary-form
+        - summaries.each_with_index do |summary, idx|
+          .summary-form
+            = f.fields_for "summaries[]", summary do |s|
+              = s.text_field :title, placeholder: "見出し#{idx + 1}を入力してください", class: "summary-title-field"
+              = s.text_area :content, placeholder: "概要#{idx + 1}を入力してください", class: "summary-content-field"
+              = s.hidden_field :summary_number, value: idx + 1
+        
+
+      .review-form
+        = f.fields_for :review do |r|
+          = r.text_area :content, value: @review, placeholder: "感想を入力してください", class: "review-field"
+
+      .action_plan-form
+        = f.fields_for :action_plan do |ap|
+          = ap.text_area :content, value: @action_plan, placeholder: "アクションプランを入力してください", class: "action-plan-field"
+
+      .submit-btn-form
+        - if note.id
+          = f.submit "更新", class: "btn"
+        - else
+          = f.submit "保存", class: "btn"

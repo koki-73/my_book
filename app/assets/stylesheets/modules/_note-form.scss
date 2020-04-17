@@ -1,0 +1,57 @@
+.note-page-title {
+  color: $gray;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.note-form-page {
+  text-align: center;
+  display: block;
+  padding: 20px 0;
+}
+
+
+.book-title {
+  text-align: center;
+  .book-title-link {
+    font-size: 30px;
+    font-weight: bold;
+    color: $light_blue;
+    text-decoration: none;
+  }
+}
+
+.note-form {
+  .summary-title-field {
+    padding: 0 10px;
+    width: 500px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .summary-content-field {
+    padding: 5px 10px;
+    width: 500px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+  .review-field, .action-plan-field {
+    padding: 5px 10px;
+    width: 500px;
+    height: 80px;
+    margin-top: 10px;
+  }
+  .btn {
+    @include btn();
+    width: 150px;
+    padding: 3px;
+    margin-top: 10px;
+  }
+  .btn:active {
+    @include btn_action;
+  }
+}

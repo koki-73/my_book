@@ -1,0 +1,147 @@
+.link-area {
+  width: 60vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  .move-page-link {
+    display: flex;
+    
+  }
+  .back-page-btn, .user-page-btn {
+    // @include btn();
+    display: inline-block;
+    width: 170px;
+    padding: 5px;
+    text-decoration: none;
+    color: $light_blue;
+  }
+  .edit-note-btn {
+    @include btn();
+    display: inline-block;
+    width: 150px;
+    padding: 5px;
+  }
+}
+// .back-page-btn:active, .user-page-btn:active, .edit-note-btn:active {
+//   @include btn_action;
+// }
+
+.slide {
+  .top-slide {
+    @include note;
+    width: 60vw;
+    height: 20vh;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    position: relative;
+    &__book-title {
+      height: 50%;
+      font-size: 30px;
+      text-align: center;
+      position: absolute;
+        top: 30%;
+        right: 0;
+        left: 0;
+    }
+    &__user-name {
+      font-size: 18px;
+      margin-top: 10%;
+      margin: 0 auto;
+      text-align: center;
+      position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+    }
+
+  }
+  .summary-slide, .review-slide, .action-plan-slide {
+    @include note;
+    width: 60vw;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    &__title {
+      @include marker();
+      font-size: 20px;
+      display: inline-block;
+    }
+    &__content {
+
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+.like-area {
+  width: 60vw;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  a {
+    text-decoration: none;
+  }
+  .liked-icon {
+    color: red;
+  }
+  .like-icon {
+    color: gray;
+  }
+}
+
+.comment-form {
+  width: 60vw;
+  margin-top: 10px;
+  border-top: 2px solid gray;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  .comment-form-area {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+  }
+  .btn-area {
+    margin-top: 10px;
+  }
+  .comment-submit-btn {
+    @include btn();
+    width: 60px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .comment-submit-btn:active {
+    @include btn_action;
+  }
+}
+
+.comments {
+  p {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.comment {
+  width: 60vw;
+  @include note;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  &__content {
+
+  }
+  &__info {
+    text-align: right;
+    font-size:12px;
+  }
+}

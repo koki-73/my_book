@@ -1,0 +1,99 @@
+.contents {
+  display: flex;
+  .left-content {
+    width: 260px;
+    height: calc(100vh - 50px);
+    padding: 20px 30px;
+    .book-image {
+      width: 200px;
+      height: 250px;
+      background-color: khaki;
+      margin: 0 auto;
+    }
+    .book-title {
+      font-size: 25px;
+      color: $gray;
+    }
+    .book-author {
+      font-size: 15px;
+      color: $gray;
+    }
+    .finish-reading-btn {
+      @include btn();
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      margin: 10px 0;
+    }
+    .finish-reading-btn:active {
+      @include btn_action;
+    }
+  
+    .create-note-btn {
+      @include btn();
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      margin: 10px 0;
+      text-decoration: none;
+      text-align: center;
+      line-height: 40px;
+    }
+    .create-note-btn:active {
+      @include btn_action;
+    }
+  }
+    
+    .right-content {
+      width: 100%;
+      padding: 20px 10px;
+      color: $gray;
+      overflow-y: auto;
+      .contents-title {
+        font-size: 25px;
+        text-align: center;
+      }
+    }
+    
+    .note-wrapper {
+      @include note;
+      width: calc(100vw - 320px);
+      position: relative;
+      padding: 10px;
+      margin: 0 auto;
+      margin-top: 10px;
+      .note-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .note-info {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        &__user {
+          font-size: 20px;
+        }
+        &__likes-count {
+          font-size: 13px;
+        }
+      }
+      .note-content {
+        display: flex;
+        &__title {
+          font-size: 15px;
+          width: 120px;
+        }
+        &__content {
+          font-size: 13px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+}

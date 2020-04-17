@@ -1,0 +1,80 @@
+@mixin btn($bColor: $light_blue, $fColor: $white, $fSize: 15px) {
+  font-size: $fSize;
+  background-color: $bColor;
+  color: $fColor;
+  border-radius: 5px;
+  border-bottom: solid 4px #46707c;
+  outline:0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+@mixin btn_action {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-bottom: none;
+}
+
+@mixin note {
+  background-color: $light_yellow;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+@mixin count {
+  font-size: 22px;
+  line-height: 30px;
+    &__title {
+      font-size: 13px;
+    }
+}
+
+@mixin marker($color: $marker_blue) {
+  background: linear-gradient(transparent 70%,  $color 20%);
+}
+
+@mixin book_index {
+  padding: 20px;
+  font-size: 20px;
+  display: grid;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(auto-fit, 180px);
+  justify-content: center;
+  .book-area {
+    width: 120px;
+    height: 180px;
+    margin: 0 30px;
+    color: $light_blue;
+    position: relative;
+    &__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__image {
+      width: 120px;
+      height: 180px;
+      background-color: $light_yellow;
+      border: 1px solid khaki;
+    }
+    &__title {
+      font-size: 15px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    &__author {
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+}

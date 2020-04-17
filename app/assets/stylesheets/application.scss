@@ -1,0 +1,17 @@
+@import "reset";
+@import "config/colors";
+@import "config/mixin";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/main-header";
+@import "modules/top-page";
+@import "modules/notes-index";
+@import "modules/note-show";
+@import "modules/user-show";
+@import "modules/book-form";
+@import "modules/user";
+@import "modules/note-form";
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,35 @@
+.main-header {
+  height: 50px;
+  width: 100%;
+  background-color: $light_blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+  &__logo {
+    line-height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    img {
+      width: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      color: white;
+      filter: invert(100%);
+    }
+  }
+
+  &__right-content {
+    line-height: 50px;
+    font-size: 15px;
+    .login-btn {
+      margin-right: 15px;
+    }
+    .user-name {
+      margin-right: 15px;
+    }
+  }
+}

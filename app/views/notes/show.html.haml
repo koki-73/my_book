@@ -1,0 +1,60 @@
+.link-area
+  .move-page-link
+    .back-page-link
+      = link_to "ノート一覧へ戻る", book_notes_path(@book.id), class: "back-page-btn"
+    .user-page-link
+      = link_to "#{@note.user.nickname}さんのページ", user_path(@note.user_id), class: "user-page-btn"
+
+  .edit-page-link
+    - if @note.user.id == current_user.id
+      = link_to "編集する", edit_book_note_path(@book.id, @note.id), class: "edit-note-btn"
+
+.slide
+  .top-slide
+    .top-slide__book-title
+      = "#{@book.title}"
+    .top-slide__user-name
+      = "#{@note.user.nickname}"
+
+  - @summaries.each do |summary|
+    .summary-slide
+      .summary-slide__title
+        = summary.title
+      .summary-slide__content
+        = summary.content
+
+  .review-slide
+    %p 感想
+    - @reviews.each do |review|
+      = review.content
+
+  .action-plan-slide
+    %p アクションプラン
+    - @action_plans.each do |action_plan|
+      = action_plan.content
+
+= render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
+  
+
+.comments-wrapper
+  .comment-form
+    = form_with(model: [@book, @note, @comment], local: true) do |f|
+      .form-area
+        = f.text_field :content, placeholder: "コメントを入力してください", class: "comment-form-area" 
+      .btn-area
+        = f.submit "送信", class: "comment-submit-btn"
+
+
+  .comments
+    - if @comments
+      %p コメント一覧
+      - @commnets.each do |comment|
+        .comment
+          .comment__content
+            = comment.content
+          .comment__info
+            = comment.user.nickname
+            = comment.created_at.to_s(:date)
+
+
+

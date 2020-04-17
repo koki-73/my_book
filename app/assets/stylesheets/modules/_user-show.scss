@@ -1,0 +1,124 @@
+.upper-content {
+  width: 1000px;
+  max-width: 100%;
+  // height: 100px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  .left-content {
+    @include note;
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+    margin-right: 20px;
+    background-color: #fafafa;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  }
+  .right-content {
+    @include note;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    padding: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    .right-content__title {
+      text-align: center;
+      p {
+        display: inline-block;
+        @include marker;
+      }
+    }
+  }
+}
+
+.profile {
+  .user-name {
+    text-align: center;
+  }
+  .user-prifile {
+    font-size: 12px;
+    height: 50px;
+  }
+}
+
+.best-books-area {
+  margin: 5px 0;
+  .best-books-area__title {
+    font-size: 16px;
+    display: inline-block;
+    @include marker();
+  }
+  .best-book, .second-best-book, .third-best-book {
+    font-size: 18px;
+  }
+}
+
+
+.count-area {
+  display: grid;
+  grid-template-rows: 30px 20px;
+  grid-template-columns: 100px 100px 100px;
+  justify-content: space-between;
+  grid-auto-flow: column;
+  text-align: center;
+  .books-count {
+    @include count;
+  }
+  .notes-count {
+    @include count;
+  }
+  .likes-count {
+    @include count;
+  }
+}
+
+.edit-btn-area {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  width: 330px;
+  .profile-edit-btn {
+    @include btn($bColor: #7fb4b9);
+    padding: 3px;
+    width: 150px;
+    font-size: 13px;
+  }
+  .profile-edit-btn:active {
+    @include btn_action;
+  }
+  .best-book-edit-btn {
+    @include btn($bColor: #7fb4b9);
+    padding: 3px;
+    width: 150px;
+    font-size: 13px;
+  }
+  .best-book-edit-btn:active {
+    @include btn_action;
+  }
+}
+
+.add-book-area {
+  text-align: center;
+  .add-book-btn {
+    @include btn();
+    width: 150px;
+    padding: 3px;
+  }
+  .add-book-btn:active {
+    @include btn_action;
+  }
+}
+
+.user-books-area {
+  margin-top: 20px;
+  @include book_index;
+  .book-area__note-info {
+    font-size: 12px;
+  }
+  .book-area__note-link {
+    text-decoration: none;
+    color: $light_blue;
+  }
+}

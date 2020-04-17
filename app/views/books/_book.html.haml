@@ -1,0 +1,7 @@
+.book-area
+  = link_to "", book_notes_path(book), class: "book-area__link"
+  .book-area__image
+  .book-area__title
+    = "#{book.title}"
+  .book-area__author
+    = "#{book.author} (著)"

@@ -1,0 +1,12 @@
+
+.register-book-form
+  = form_with(model: book, local:true) do |f|
+    .book-title-form
+      = f.text_field :title, value: book.title, placeholder: "タイトルを入力してください", class: "title-field"
+    .book-author-form
+      = f.text_field :author, value: book.author, placeholder: "著者を入力してください", class: "author-field"
+    .submit-form
+      - if book.id
+        = f.submit "更新", class: "book-submit-btn"
+      - else
+        = f.submit "追加", class: "book-submit-btn"

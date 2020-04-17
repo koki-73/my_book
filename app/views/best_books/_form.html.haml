@@ -1,0 +1,23 @@
+.register-best-book-form
+  = form_with(model: [user, best_book], local:true) do |f|
+    .best-book-form
+      .input-form-message
+        ベスト１を選んでください
+      .best-book-form
+        = f.collection_select :best_book_id, books, :id, :title
+    .second-best-book-form
+      .input-form-message
+        ベスト２を選んでください
+      .best-book-form
+        = f.collection_select :second_book_id, books, :id, :title
+    .third-best-book-form
+      .input-form-message
+        ベスト３を選んでください
+      .best-book-form
+        = f.collection_select :third_book_id, books, :id, :title
+    .submit-btn
+      - if best_book.user_id
+        = f.submit "更新"
+      - else
+        = f.submit "登録"
+        

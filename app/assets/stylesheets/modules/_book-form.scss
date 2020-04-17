@@ -1,0 +1,28 @@
+.register-book-title {
+  text-align: center;
+  font-size: 20px;
+  margin: 30px;
+}
+
+
+
+.title-field, .author-field {
+  width: 500px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1px solid $light_blue;
+  padding: 5px;
+}
+
+.book-submit-btn {
+  @include btn();
+  width: 60px;
+  padding: 3px;
+  display: block;
+  margin: 0 auto;
+}
+.book-submit-btn:active {
+  @include btn_action;
+}

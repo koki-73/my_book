@@ -1,0 +1,15 @@
+.like-area
+  - if current_user.already_liked?(note)
+    .like-area__message
+      %p いいねしたらコメントしよう
+    .like-area__btn
+      = link_to book_note_like_path(book.id, note.id), method: :delete, class: "like-btn" do
+        = icon('fa', 'heart', class: "liked-icon")
+      = " #{likes.length}"
+  - else
+    .like-area__message
+      %p 気に入ったらいいねしよう
+    .like-area__btn
+      = link_to book_note_likes_path(book.id, note.id), method: :post, class: "like-btn" do
+        = icon('far', 'heart', class: "like-icon")
+      = " #{likes.length}"

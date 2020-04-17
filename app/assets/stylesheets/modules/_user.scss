@@ -1,0 +1,38 @@
+
+.account-page {
+  color: $gray;
+  &__title {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 25px;
+  }
+  &__form {
+    text-align: center;
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      display: inline-block;
+      font-size: 20px;
+    }
+    .nick-name-field, .email-field, .password-field {
+      width: 400px;
+      height: 40px;
+      padding: 0 10px;
+    }
+    .profile-field {
+      width: 400px;
+      height: 100px;
+      padding: 0 10px;
+      vertical-align: top;
+    }
+    .btn {
+      @include btn();
+      width: 150px;
+      padding: 3px;
+      margin-top: 10px;
+    }
+    .btn:active {
+      @include btn_action;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MyBook
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body
+    .main-header
+      .main-header__logo
+        = image_tag 'book_icon.png', class: "book_icon"
+        = link_to 'Book<Notes', root_path, id: "my-book"
+      - if user_signed_in?
+        .main-header__right-content
+          = link_to "#{current_user.nickname}", user_path(current_user.id), class: "user-name"
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout-btn"
+      - else
+        .main-header__right-content
+          = link_to 'ログイン', new_user_session_path, class: "login-btn"
+          = link_to '新規登録', new_user_registration_path, class: "sign-up-btn"
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
+    = yield

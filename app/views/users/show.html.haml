@@ -1,0 +1,93 @@
+.upper-content
+  .left-content
+    .profile
+      .user-name
+        = @user.nickname
+      .user-prifile
+        = simple_format(@user.profile)
+
+    .best-books-area
+      .best-books-area__title
+        = "#{@user.nickname}さんのおすすめ"
+      .best-book
+        - if @best_book
+          - if @best_book.best_book_id
+            = "ベスト１  #{@books.find(@best_book.best_book_id).title}"
+          - else
+            ベスト１はまだ登録されていません
+        - else
+          ベスト１はまだ登録されていません
+      .second-best-book
+        - if @best_book
+          - if @best_book.second_book_id
+            = "ベスト２  #{@books.find(@best_book.second_book_id).title}"
+          - else
+            ベスト２はまだ登録されていません
+        - else
+          ベスト２はまだ登録されていません
+      .third-best-book
+        - if @best_book
+          - if @best_book.third_book_id
+            = "ベスト３  #{@books.find(@best_book.third_book_id).title}"
+          - else
+            ベスト３はまだ登録されていません
+        - else
+          ベスト３はまだ登録されていません
+    
+    .count-area
+      .books-count
+        = "#{@books.length}"
+      .books-count__title
+        = "読んだ本"
+
+      .notes-count
+        = "#{@notes.length}"
+      .notes-count__title
+        = "書いたノート"
+
+      .likes-count
+        = "#{@likes.length}"
+      .likes-count__title
+        = "もらったいいね"
+
+    - if @user.id == current_user.id
+      .edit-btn-area
+        .profile-edit
+          = link_to "プロフィール編集", edit_user_registration_path, class: "profile-edit-btn"
+        
+        .best-book-edit
+          - if @best_book
+            = link_to "ベスト３の編集", edit_user_best_book_path(@user.id, @best_book.id), class: "best-book-edit-btn"
+          - else
+            = link_to "ベスト３の登録", new_user_best_book_path(@user.id), class: "best-book-edit-btn"
+
+
+  .right-content
+    .right-content__title
+      %p アクションプラン一覧
+    .action-plan-index
+      - @user.action_plans.each do |action_plan|
+        .action-plan
+          = action_plan.content
+
+
+.add-book-area
+  = button_to "本を追加する", new_book_path, method: "get", class: "add-book-btn"
+
+.create-note-btn
+
+.main-content
+  .user-books-area
+    - @books.each do |book|
+      .book-area
+        - if book.notes.find_by(user_id: params[:id])
+          - note_id = book.notes.find_by(user_id: params[:id]).id
+          = link_to "", book_notes_path(book.id), class: "book-area__link"
+        .book-area__image
+        .book-area__title
+          = "#{book.title}"
+        .book-area__author
+          = "#{book.author} (著)"
+        .book-area__note-info
+          - if book.notes.find_by(user_id: params[:id])
+            = link_to "ノートあり", book_note_path(book.id, note_id), class: "book-area__note-link"
