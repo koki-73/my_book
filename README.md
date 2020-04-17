@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Name
+====
+book Notes
 
-Things you may want to cover:
+Overview
+読んだ本のアウトプットを管理できるアプリ
 
-* Ruby version
+## Description
+・ユーザーごとに読んだ本の管理ができる。
+・読んだ本についてのノート（要約、感想、アクションプラン）を作成し、管理できる。
+・他のユーザーが作成したノートを閲覧でき、いいねやコメントができる
 
-* System dependencies
+<!-- ## Demo -->
 
-* Configuration
+## VS. 
+・ブクログなどのレビューアプリはあるが、このアプリでは本の内容をアウトプットして記憶の定着、習慣化ができる
 
-* Database creation
+<!-- ## Requirement
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+## Install
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contribution
 
-* Deployment instructions
+## Licence -->
 
-* ...
+## Author
+Koki Sasaki
