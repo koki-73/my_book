@@ -80,9 +80,7 @@
   .user-books-area
     - @books.each do |book|
       .book-area
-        - if book.notes.find_by(user_id: params[:id])
-          - note_id = book.notes.find_by(user_id: params[:id]).id
-          = link_to "", book_notes_path(book.id), class: "book-area__link"
+        = link_to "", book_notes_path(book.id), class: "book-area__link"
         .book-area__image
         .book-area__title
           = "#{book.title}"
@@ -90,4 +88,5 @@
           = "#{book.author} (著)"
         .book-area__note-info
           - if book.notes.find_by(user_id: params[:id])
-            = link_to "ノートあり", book_note_path(book.id, note_id), class: "book-area__note-link"
+            - note_id = book.notes.find_by(user_id: params[:id]).id
+            = link_to "ノートを見る", book_note_path(book.id, note_id), class: "book-area__note-link"
