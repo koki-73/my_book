@@ -9,7 +9,6 @@
     
   }
   .back-page-btn, .user-page-btn {
-    // @include btn();
     display: inline-block;
     width: 170px;
     padding: 5px;
@@ -23,9 +22,6 @@
     padding: 5px;
   }
 }
-// .back-page-btn:active, .user-page-btn:active, .edit-note-btn:active {
-//   @include btn_action;
-// }
 
 .slide {
   .top-slide {

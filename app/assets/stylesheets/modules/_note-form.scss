@@ -23,13 +23,17 @@
 }
 
 .note-form {
+  .input-area-title {
+    font-size: 18px;
+    color: $gray;
+    margin-top: 10px;
+  }
   .summary-title-field {
     padding: 0 10px;
     width: 500px;
     height: 50px;
     display: block;
     margin: 0 auto;
-    margin-top: 10px;
     margin-bottom: 5px;
   }
   .summary-content-field {
