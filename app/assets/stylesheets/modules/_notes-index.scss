@@ -29,7 +29,7 @@
       @include btn_action;
     }
   
-    .create-note-btn {
+    .create-note-btn, .edit-book-btn {
       @include btn();
       display: inline-block;
       width: 150px;
@@ -39,7 +39,7 @@
       text-align: center;
       line-height: 40px;
     }
-    .create-note-btn:active {
+    .create-note-btn:active, .edit-book-btn:active {
       @include btn_action;
     }
   }

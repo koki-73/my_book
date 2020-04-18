@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :books do
     resources :searches, only: :index
   end
-  resources :books, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :books, only: [:index, :new, :create, :edit, :update] do
     resources :notes, only: [:index, :new, :create, :edit, :update, :show] do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
