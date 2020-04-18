@@ -40,7 +40,7 @@ $(function(){
       } 
       else {
         appendErrMsgToHTML("一致する本がありません");
-      }
+      };
     })
   });
 
