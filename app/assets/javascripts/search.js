@@ -39,6 +39,7 @@ $(function(){
         });
       } 
       else {
+        $(".error-message").empty();
         appendErrMsgToHTML("一致する本がありません");
       };
     })
