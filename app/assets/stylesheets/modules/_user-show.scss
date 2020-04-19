@@ -52,6 +52,20 @@
   }
   .best-book, .second-best-book, .third-best-book {
     font-size: 18px;
+    display: flex;
+    height: 27px;
+    .left-word {
+      margin-right: 10px;
+    }
+    a {
+      text-decoration: none;
+      display: inline-block;
+      width: 240px;
+      color: #000000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 

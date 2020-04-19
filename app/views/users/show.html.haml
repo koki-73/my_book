@@ -12,7 +12,10 @@
       .best-book
         - if @best_book
           - if @best_book.best_book_id
-            = "ベスト１  #{@books.find(@best_book.best_book_id).title}"
+            .left-word
+              = "ベスト１"
+            .book-link
+              = link_to "#{@books.find(@best_book.best_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
           - else
             ベスト１はまだ登録されていません
         - else
@@ -20,7 +23,10 @@
       .second-best-book
         - if @best_book
           - if @best_book.second_book_id
-            = "ベスト２  #{@books.find(@best_book.second_book_id).title}"
+            .left-word
+              = "ベスト２"
+            .book-link
+            = link_to "#{@books.find(@best_book.second_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
           - else
             ベスト２はまだ登録されていません
         - else
@@ -28,7 +34,10 @@
       .third-best-book
         - if @best_book
           - if @best_book.third_book_id
-            = "ベスト３  #{@books.find(@best_book.third_book_id).title}"
+            .left-word
+              = "ベスト３"
+            .book-link
+              = link_to "#{@books.find(@best_book.third_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
           - else
             ベスト３はまだ登録されていません
         - else
