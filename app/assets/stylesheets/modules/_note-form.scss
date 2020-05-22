@@ -23,10 +23,49 @@
 }
 
 .note-form {
-  .input-area-title {
+  .summary-area, .review-form, .action-plan-form {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    .add-form-btn {
+      font-size: 12px;
+      display: inline-block;
+      padding: 5px 10px;
+      color: #fff;
+      border-radius: 3px;
+      background-color: $light_blue;
+    }
+  }
+  .js-file-group {
+    width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #dadce0;
+    .delete-form-display {
+      font-size: 12px;
+      display: inline-block;
+      padding: 5px 10px;
+      color: #fff;
+      border-radius: 3px;
+      background-color: gray;
+    }
+  }
+  h2.input-area-title {
+    @include section-title;
+  }
+  h3.input-area-title {
+    width: 200px;
     font-size: 18px;
     color: $gray;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 40px;
   }
   .summary-title-field {
     padding: 0 10px;
@@ -34,7 +73,7 @@
     height: 50px;
     display: block;
     margin: 0 auto;
-    margin-bottom: 5px;
+    border-bottom: 1px solid #dadce0;
   }
   .summary-content-field {
     padding: 5px 10px;
@@ -48,6 +87,9 @@
     width: 500px;
     height: 80px;
     margin-top: 10px;
+  }
+  textarea, input {
+    border: none;
   }
   .btn {
     @include btn();

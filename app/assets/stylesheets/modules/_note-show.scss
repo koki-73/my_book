@@ -1,12 +1,11 @@
 .link-area {
-  width: 60vw;
+  width: 700px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   .move-page-link {
     display: flex;
-    
   }
   .back-page-btn, .user-page-btn {
     display: inline-block;
@@ -15,25 +14,37 @@
     text-decoration: none;
     color: $light_blue;
   }
+  .note-edit-area {
+    display: flex;
+  }
   .edit-note-btn {
-    @include btn();
-    display: inline-block;
-    width: 150px;
-    padding: 5px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: $light_blue;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  #delete-note-link {
+    margin-right: 5px;
+    text-decoration: none;
+    color: $light_blue;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
   }
 }
 
 .slide {
   .top-slide {
-    @include note;
-    width: 60vw;
+    width: 700px;
     height: 20vh;
     margin: 0 auto;
     margin-bottom: 10px;
     position: relative;
     &__book-title {
       height: 50%;
-      font-size: 30px;
+      font-size: 40px;
+      color: $light_blue;
       text-align: center;
       position: absolute;
         top: 30%;
@@ -52,28 +63,41 @@
     }
 
   }
-  .summary-slide, .review-slide, .action-plan-slide {
-    @include note;
-    width: 60vw;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    &__title {
-      @include marker();
-      font-size: 20px;
-      display: inline-block;
+  h2.slide-title {
+    @include section-title;
+  }
+  .summary-area {
+    @include section-content;
+    .summary-slide {
+      // @include note;
+      width: 600px;
+      padding: 10px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      border-top: 1px solid #dadce0;
+      &__title {
+        @include marker();
+        font-size: 25px;
+        display: inline-block;
+      }
+      &__content {
+        
+      }
     }
-    &__content {
-
-    }
-    p {
-      font-size: 20px;
-    }
+  }
+  .review-area, .action-plan-area {
+    @include section-content;
+    padding: 20px 50px;
+  }
+  .summary-slide:first-child {
+    border: none;
   }
 }
 
+
+
 .like-area {
-  width: 60vw;
+  width: 700px;
   font-size: 18px;
   text-align: center;
   display: flex;
@@ -93,7 +117,7 @@
 }
 
 .comment-form {
-  width: 60vw;
+  width: 700px;
   margin-top: 10px;
   border-top: 2px solid gray;
   margin: 0 auto;
@@ -127,7 +151,7 @@
 }
 
 .comment {
-  width: 60vw;
+  width: 700px;
   @include note;
   margin: 0 auto;
   margin-top: 10px;
@@ -140,4 +164,8 @@
     text-align: right;
     font-size:12px;
   }
+}
+
+#overlay {
+  @include modal;
 }
