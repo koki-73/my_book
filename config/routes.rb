@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   resources :books, only: [:index, :new, :create, :edit, :update] do
-    resources :notes, only: [:index, :new, :create, :edit, :update, :show] do
+    resources :notes do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
     end

@@ -4,34 +4,56 @@
       = link_to "ノート一覧へ戻る", book_notes_path(@book.id), class: "back-page-btn"
     .user-page-link
       = link_to "#{@note.user.nickname}さんのページ", user_path(@note.user_id), class: "user-page-btn"
-
-  .edit-page-link
+  .note-edit-area
     - if @note.user.id == current_user.id
-      = link_to "編集する", edit_book_note_path(@book.id, @note.id), class: "edit-note-btn"
+      .edit-page-link
+        = link_to edit_book_note_path(@book.id, @note.id), class: "edit-note-btn" do
+          = icon('fas', 'edit', class: "like-icon")
+      #delete-note-link
+        = icon('fas', 'trash', class: "like-icon")
+      = link_to "", book_note_path(@book.id, @note.id), method: :delete, id: "delete-note-btn"
+      #overlay
+        #modal-window
+          .modal-message-box
+            %div 本当に削除しますか？
+          %button#modal-close-btn キャンセル
+          %button#delete-comformation-btn__note 削除する
 
 .slide
   .top-slide
     .top-slide__book-title
       = "#{@book.title}"
     .top-slide__user-name
-      = "#{@note.user.nickname}"
+      = "ノート作者 : #{@note.user.nickname}"
 
-  - @summaries.each do |summary|
-    .summary-slide
-      .summary-slide__title
-        = summary.title
-      .summary-slide__content
-        = summary.content
+  %h2.slide-title
+    本の要約
+  .summary-area
+    - @summaries.each do |summary|
+      .summary-slide
+        .summary-slide__title
+          = summary.title
+        .summary-slide__content
+          = summary.content
 
-  .review-slide
-    %p 感想
+  %h2.slide-title
+    感想
+  .review-area
     - @reviews.each do |review|
-      = review.content
+      - if review.content != ""
+        = review.content
+      - else
+        感想はまだ書いていません
 
-  .action-plan-slide
-    %p アクションプラン
+  %h2.slide-title
+    アクションプラン
+  .action-plan-area
     - @action_plans.each do |action_plan|
-      = action_plan.content
+      - if action_plan.content != ""
+        = action_plan.content
+      - else
+        アクションプランはまだ書いていません
+
 
 = render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
   

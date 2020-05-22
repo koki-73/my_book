@@ -1,4 +1,12 @@
 @import "reset";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+* {
+  box-sizing: border-box;
+}
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 @import "config/colors";
 @import "config/mixin";
 @import "font-awesome-sprockets";
@@ -12,7 +20,3 @@
 @import "modules/user";
 @import "modules/note-form";
 @import "modules/best-book-form";
-
-* {
-  box-sizing: border-box;
-}

@@ -11,24 +11,19 @@ class NotesController < ApplicationController
       redirect_to book_notes_path(@book.id)
     else
       @note = Note.new
-      @summaries = [Summary.new, Summary.new, Summary.new]
+      @note.summaries.new
+      @note.reviews.new
+      @note.action_plans.new
     end
   end
 
   def create
     @note = Note.new(note_params)
-    if @note.save
-      @summaries = summaries_params
-      @summaries.each do |summary|
-        summary[:note_id] = @note.id
-        Summary.create(summary)
-      end
-      @review = Review.create(review_params)
-      @action_plan = ActionPlan.create(action_plan_params)
-      redirect_to book_note_path(@note.book_id, @note.id)
-    else 
-      flash[:error] = 'この本のノートは作成済みです'
+    if note_params[:summaries_attributes] || note_params[:reviews_attributes] || note_params[:action_plans_attributes]
+      @note.save
       redirect_to book_notes_path(@note.book_id)
+    else
+      render action: :new
     end
   end
   
@@ -36,49 +31,21 @@ class NotesController < ApplicationController
     @book = Book.find(params[:book_id])
     @note = Note.find(params[:id])
     @summaries = Summary.where(note_id: @note.id)
-    while @summaries[2].nil? do
-      @summaries = @summaries + [Summary.new]
-    end
-    if Review.find_by(note_id: @note.id)
-      @review = Review.find_by(note_id: @note.id).content
-    else
-      @review = Review.new.content
-    end
-    if ActionPlan.find_by(note_id: @note.id)
-      @action_plan = ActionPlan.find_by(note_id: @note.id).content
-    else
-      @action_plan = ActionPlan.new.content
-    end
+    @review = Review.find_by(note_id: @note.id)
+    @action_plan = ActionPlan.find_by(note_id: @note.id)
   end
   
   def update
-    @note = Note.find_by(note_params)
-    @note.update(note_params)
-    @summaries = summaries_params
-    if @summaries.class == ActionController::Parameters
-      @summaries.keys.each do |id|
-        old_summary = Summary.find(id)
-        old_summary.update(@summaries["#{id}"])
-      end
+    @note = Note.find(params[:id])
+    @book = Book.find(params[:book_id])
+    @summaries = Summary.where(note_id: @note.id)
+    @review = Review.find_by(note_id: @note.id)
+    @action_plan = ActionPlan.find_by(note_id: @note.id)
+    if @note.update(note_params)
+      redirect_to book_notes_path(@note.book_id)
     else
-      @summaries.each do |summary|
-        summary[:note_id] = @note.id
-        Summary.create(summary)
-      end
+      render action: :edit
     end
-    if Review.find_by(note_id: @note.id)
-      @review = Review.find_by(note_id: @note.id)
-    else
-      @review = Review.new
-    end
-    @review.update(review_params)
-    if ActionPlan.find_by(note_id: @note.id)
-      @action_plan = ActionPlan.find_by(note_id: @note.id)
-    else
-      @action_plan = ActionPlan.new
-    end
-    @action_plan.update(action_plan_params)
-    redirect_to book_note_path(@note.book_id, @note.id)
   end
   
   def show
@@ -93,21 +60,22 @@ class NotesController < ApplicationController
     @likes = Like.where(note_id: params[:id])
   end
 
-  private
-  def note_params
-    params.permit(:book_id).merge(user_id: current_user.id)
-  end
-  
-  def summaries_params
-    params.require(:note).permit(summaries: [:note_id, :title, :content, :summary_number])[:summaries]
-  end
-  
-  def review_params
-    params.require(:note).require(:review).permit(:content).merge(note_id: @note.id)
+  def destroy
+    note = Note.find(params[:id])
+    if user_signed_in? && note.user_id == current_user.id && note.destroy
+      redirect_to root_path
+    else
+      render action: :show
+    end
   end
 
-  def action_plan_params
-    params.require(:note).require(:action_plan).permit(:content).merge(note_id: @note.id, user_id: current_user.id)
+  private
+  def note_params
+    params.require(:note).permit(summaries_attributes: [:title, :content, :summary_number, :_destroy, :id],
+                                 reviews_attributes: [:content, :_destroy, :id],
+                                 action_plans_attributes: [:content, :user_id, :_destroy, :id])
+                                 .merge(user_id: current_user.id)
+                                 .merge(params.permit(:book_id))
   end
 
 end
