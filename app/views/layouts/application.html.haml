@@ -11,7 +11,7 @@
     .main-header
       .main-header__logo
         = image_tag 'book_icon.png', class: "book_icon"
-        = link_to 'Book Notes', root_path, id: "book-notes"
+        = link_to "Book Notes", root_path, id: "book-notes"
       - if user_signed_in?
         .main-header__right-content
           = link_to "#{current_user.nickname}", user_path(current_user.id), class: "user-name"
