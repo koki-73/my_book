@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding: 0 50px;
   a#book-notes, a {
+    display: inline-block;
     text-decoration: none;
     color: $white;
   }
