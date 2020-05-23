@@ -103,6 +103,16 @@
   border-top-right-radius: 0;
 }
 
+@mixin required {background: #ea352d;
+  display: inline-block;
+  margin: 0 0 0 8px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: text-bottom;
+}
+
 @mixin modal {
   width: 100%;
   height: 100%;

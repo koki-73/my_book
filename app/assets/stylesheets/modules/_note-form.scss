@@ -59,13 +59,18 @@
   h2.input-area-title {
     @include section-title;
   }
-  h3.input-area-title {
-    width: 200px;
-    font-size: 18px;
+  .input-area-title {
     color: $gray;
-    margin-top: 20px;
     text-align: left;
-    margin-left: 40px;
+    margin: 20px 0 20px 40px;
+    h3 {
+      width: 80px;
+      font-size: 18px;
+      display: inline-block;
+    }
+  }
+  span.form-require {
+    @include required;
   }
   .summary-title-field {
     padding: 0 10px;

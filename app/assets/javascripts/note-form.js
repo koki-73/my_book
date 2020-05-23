@@ -1,11 +1,16 @@
 $(function(){
   function buildFileField(index) {
     const html = `<div class="js-file-group" data-index="${index}">
-                    <div class="summary-border"></div>
-                    <h3 class="input-area-title">見出し</h3>
-                    <input placeholder="見出しを入力してください" class="summary-title-field" type="text" name="note[summaries_attributes][${index}][title]" id="note_summaries_attributes_${index}_title">
-                    <h3 class="input-area-title">要約</h3>
-                    <textarea placeholder="概要を入力してください" class="summary-content-field" name="note[summaries_attributes][${index}][content]" id="note_summaries_attributes_${index}_content"></textarea>
+                    <div class="input-area-title">
+                      <h3 class="form-title">タイトル</h3>
+                      <span class="form-require">必須</span>
+                    </div>
+                    <input placeholder="タイトルを入力してください" class="summary-title-field" type="text" name="note[summaries_attributes][${index}][title]" id="note_summaries_attributes_${index}_title">
+                    <div class="input-area-title">
+                      <h3 class="form-title">説明</h3>
+                      <span class="form-require">必須</span>
+                    </div>
+                    <textarea placeholder="説明を入力してください" class="summary-content-field" name="note[summaries_attributes][${index}][content]" id="note_summaries_attributes_${index}_content"></textarea>
                     <div class="delete-form-display">削除する</div>
                     <div class="delete-form-btn"></div>
                   </div>`;

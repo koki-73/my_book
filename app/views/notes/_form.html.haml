@@ -6,18 +6,23 @@
     = form_with(model: [@book, @note], local: true) do |f|
 
       %h2.input-area-title
-        本の要約
+        本のポイント
       .summary-area
         .summary-form-area
           = f.fields_for :summaries do |s|
             .js-file-group{ data: {index: "#{s.index}"} }
-              %p.summary-border
-              %h3.input-area-title
-                見出し
-              = s.text_field :title, placeholder: "見出しを入力してください", class: "summary-title-field"
-              %h3.input-area-title
-                要約
-              = s.text_area :content, placeholder: "概要を入力してください", class: "summary-content-field"
+              .input-area-title
+                %h3.form-title
+                  タイトル
+                %span.form-require
+                  必須
+              = s.text_field :title, placeholder: "タイトルを入力してください", class: "summary-title-field"
+              .input-area-title
+                %h3.form-title
+                  説明
+                %span.form-require
+                  必須
+              = s.text_area :content, placeholder: "説明を入力してください", class: "summary-content-field"
               -# = s.text_field :summary_number, value: 1, class: "summary-number-field"
               .delete-form-display
                 削除する
@@ -27,16 +32,7 @@
 
         .add-form-btn
           追加する
-        -# - summaries.each_with_index do |summary, idx|
-        -#   .input-area-title
-        -#     = "要約#{idx + 1}"
-        -#   .summary-form
-        -#     = f.fields_for :summaries, summary do |s|
-        -#       -# = f.fields_for "summaries[]", summary do |s|
-        -#       = s.text_field :title, placeholder: "見出し#{idx + 1}を入力してください", class: "summary-title-field"
-        -#       = s.text_area :content, placeholder: "概要#{idx + 1}を入力してください", class: "summary-content-field"
-        -#       = s.hidden_field :summary_number, value: idx + 1
-        
+          
       %h2.input-area-title
         感想
       .review-form
