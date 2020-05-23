@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  before_action :move_to_top, except: :index
+
   def index
     @books = Book.all
   end
@@ -36,5 +39,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :author)
+  end
+
+  def move_to_top
+    redirect_to root_path unless user_signed_in?
   end
 end

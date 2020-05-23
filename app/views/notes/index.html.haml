@@ -10,7 +10,7 @@
       = "#{@book.author} (著)"
 
     .finish-reading-btn-area
-      - if current_user.already_read?(@book)
+      - if current_user&.already_read?(@book)
         - book_user = BookUser.find_by(book_id: @book.id, user_id: current_user.id)
         = button_to '未読にする', book_user_path(book_user.id), method: :delete, class: "finish-reading-btn"
       - else
@@ -20,7 +20,7 @@
       = link_to "本を編集", edit_book_path(@book.id), class: "edit-book-btn"
 
     .create-note-link
-      - if current_user.already_read?(@book)
+      - if current_user&.already_read?(@book)
         = link_to "ノート作成", new_book_note_path(@book.id), class: "create-note-btn"
 
 

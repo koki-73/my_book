@@ -10,5 +10,4 @@ class LikesController < ApplicationController
     redirect_to book_note_path(params[:book_id], params[:note_id])
   end
 
-
 end

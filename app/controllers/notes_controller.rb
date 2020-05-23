@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+  
+  before_action :move_to_top, except: [:index, :show]
+
   def index
     @notes = Note.where(book_id: params[:book_id]).includes(:user)
     @book = Book.find(params[:book_id])
@@ -19,6 +22,9 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+    @summaries = @note.summaries
+    @reviews = @note.reviews
+    @action_plans = @note.action_plans
     if note_params[:summaries_attributes] || note_params[:reviews_attributes] || note_params[:action_plans_attributes]
       @note.save
       redirect_to book_notes_path(@note.book_id)
@@ -76,6 +82,10 @@ class NotesController < ApplicationController
                                  action_plans_attributes: [:content, :user_id, :_destroy, :id])
                                  .merge(user_id: current_user.id)
                                  .merge(params.permit(:book_id))
+  end
+
+  def move_to_top
+    redirect_to root_path unless user_signed_in?
   end
 
 end

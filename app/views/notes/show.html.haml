@@ -1,82 +1,82 @@
-.link-area
-  .move-page-link
-    .back-page-link
-      = link_to "ノート一覧へ戻る", book_notes_path(@book.id), class: "back-page-btn"
-    .user-page-link
-      = link_to "#{@note.user.nickname}さんのページ", user_path(@note.user_id), class: "user-page-btn"
-  .note-edit-area
-    - if @note.user.id == current_user.id
-      .edit-page-link
-        = link_to edit_book_note_path(@book.id, @note.id), class: "edit-note-btn" do
-          = icon('fas', 'edit', class: "like-icon")
-      #delete-note-link
-        = icon('fas', 'trash', class: "like-icon")
-      = link_to "", book_note_path(@book.id, @note.id), method: :delete, id: "delete-note-btn"
-      #overlay
-        #modal-window
-          .modal-message-box
-            %div 本当に削除しますか？
-          %button#modal-close-btn キャンセル
-          %button#delete-comformation-btn__note 削除する
+.note-show-wrapper
+  .link-area
+    .move-page-link
+      .back-page-link
+        = link_to "ノート一覧へ戻る", book_notes_path(@book.id), class: "back-page-btn"
+      .user-page-link
+        = link_to "#{@note.user.nickname}さんのページ", user_path(@note.user_id), class: "user-page-btn"
+    .note-edit-area
+      - if @note.user.id == current_user&.id
+        .edit-page-link
+          = link_to edit_book_note_path(@book.id, @note.id), class: "edit-note-btn" do
+            = icon('fas', 'edit', class: "like-icon")
+        #delete-note-link
+          = icon('fas', 'trash', class: "like-icon")
+        = link_to "", book_note_path(@book.id, @note.id), method: :delete, id: "delete-note-btn"
+        #overlay
+          #modal-window
+            .modal-message-box
+              %div 本当に削除しますか？
+            %button#modal-close-btn キャンセル
+            %button#delete-comformation-btn__note 削除する
 
-.slide
-  .top-slide
-    .top-slide__book-title
-      = "#{@book.title}"
-    .top-slide__user-name
-      = "ノート作者 : #{@note.user.nickname}"
+  .slide
+    .top-slide
+      .top-slide__book-title
+        = "#{@book.title}"
+      .top-slide__user-name
+        = "ノート作者 : #{@note.user.nickname}"
 
-  %h2.slide-title
-    本の要約
-  .summary-area
-    - @summaries.each do |summary|
-      .summary-slide
-        .summary-slide__title
-          = summary.title
-        .summary-slide__content
-          = summary.content
+    %h2.slide-title
+      本の要約
+    .summary-area
+      - @summaries.each do |summary|
+        .summary-slide
+          .summary-slide__title
+            = summary.title
+          .summary-slide__content
+            = summary.content
 
-  %h2.slide-title
-    感想
-  .review-area
-    - @reviews.each do |review|
-      - if review.content != ""
-        = review.content
-      - else
-        感想はまだ書いていません
+    %h2.slide-title
+      感想
+    .review-area
+      - @reviews.each do |review|
+        - if review.content != ""
+          = review.content
+        - else
+          感想はまだ書いていません
 
-  %h2.slide-title
-    アクションプラン
-  .action-plan-area
-    - @action_plans.each do |action_plan|
-      - if action_plan.content != ""
-        = action_plan.content
-      - else
-        アクションプランはまだ書いていません
+    %h2.slide-title
+      アクションプラン
+    .action-plan-area
+      - @action_plans.each do |action_plan|
+        - if action_plan.content != ""
+          = action_plan.content
+        - else
+          アクションプランはまだ書いていません
+
+  - if user_signed_in?
+    = render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
+
+    .comments-wrapper
+      .comment-form
+        = form_with(model: [@book, @note, @comment], local: true) do |f|
+          .form-area
+            = f.text_field :content, placeholder: "コメントを入力してください", class: "comment-form-area" 
+          .btn-area
+            = f.submit "送信", class: "comment-submit-btn"
 
 
-= render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
-  
-
-.comments-wrapper
-  .comment-form
-    = form_with(model: [@book, @note, @comment], local: true) do |f|
-      .form-area
-        = f.text_field :content, placeholder: "コメントを入力してください", class: "comment-form-area" 
-      .btn-area
-        = f.submit "送信", class: "comment-submit-btn"
-
-
-  .comments
-    - if @comments
-      %p コメント一覧
-      - @commnets.each do |comment|
-        .comment
-          .comment__content
-            = comment.content
-          .comment__info
-            = comment.user.nickname
-            = comment.created_at.to_s(:date)
+      .comments
+        - if @comments
+          %p コメント一覧
+          - @commnets.each do |comment|
+            .comment
+              .comment__content
+                = comment.content
+              .comment__info
+                = comment.user.nickname
+                = comment.created_at.to_s(:date)
 
 
 

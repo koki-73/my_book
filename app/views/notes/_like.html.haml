@@ -1,5 +1,5 @@
 .like-area
-  - if current_user.already_liked?(note)
+  - if current_user&.already_liked?(note)
     .like-area__message
       %p いいねしたらコメントしよう
     .like-area__btn

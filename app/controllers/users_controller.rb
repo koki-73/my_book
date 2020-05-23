@@ -7,6 +7,4 @@ class UsersController < ApplicationController
     @best_book = BestBook.find_by(user_id: params[:id])
   end
 
-  def edit    
-  end
 end
