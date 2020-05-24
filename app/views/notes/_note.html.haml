@@ -6,9 +6,9 @@
     .note-info__likes-count
       - likes = Like.where(note_id: note.id).length
       = "❤️#{likes}"
-  - note.summaries.each do |summary|
+  - note.summaries.each_with_index do |summary, i|
     .note-content
       .note-content__title
-        = "#{summary.summary_number}. #{summary.title}"
+        = "#{i + 1}. #{summary.title}"
       .note-content__content
         = "#{summary.content}"
