@@ -7,6 +7,8 @@ class Book < ApplicationRecord
   validates :author, presence: true
   validates :title, uniqueness: {scope: :author}
 
+  mount_uploader :image, ImageUploader
+
   def self.search(search)
     return Book.all unless search
     Book.where('title LIKE(?) OR author LIKE(?)', "%#{search}%", "%#{search}%")

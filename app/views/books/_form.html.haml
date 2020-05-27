@@ -5,6 +5,8 @@
       = f.text_field :title, value: book.title, placeholder: "タイトルを入力してください", class: "title-field"
     .book-author-form
       = f.text_field :author, value: book.author, placeholder: "著者を入力してください", class: "author-field"
+    .book-image-form
+      = f.file_field :image, class: "image-field"
     .submit-form
       - if book.id
         = f.submit "更新", class: "book-submit-btn"
