@@ -2,6 +2,7 @@
 
   .left-content
     .book-image
+      = image_tag "#{@book.image.url}", height: '250px', width: '200px'
 
     .book-title
       = @book.title
