@@ -52,6 +52,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  # database: ImageUpload_production
-  # username: ImageUpload
-  # password: <%= ENV['IMAGEUPLOAD_DATABASE_PASSWORD'] %>
+  database: ImageUpload_production
+  username: ImageUpload
+  password: <%= ENV['IMAGEUPLOAD_DATABASE_PASSWORD'] %>

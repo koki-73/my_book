@@ -47,8 +47,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   if Rails.env.production?
-    # include Cloudinary::CarrierWave
-    storage :file
+    include Cloudinary::CarrierWave
   else
     storage :file
   end
