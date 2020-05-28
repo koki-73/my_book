@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 2020_05_27_071343) do
 
   create_table "best_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "best_book_id", using: 'best_book_id::integer'
-    t.integer "second_book_id", using: 'second_book_id::integer'
-    t.integer "third_book_id", using: 'third_id::integer'
+    t.integer "best_book_id"
+    t.integer "second_book_id"
+    t.integer "third_book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
