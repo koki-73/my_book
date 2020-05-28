@@ -40,6 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development do
@@ -65,9 +66,10 @@ gem 'devise'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-sass'
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
+gem 'carrierwave', '~> 1.3.1'
+gem 'cloudinary' , '1.11.1'
 
 group :production do
   gem 'pg'
