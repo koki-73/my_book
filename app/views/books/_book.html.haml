@@ -1,6 +1,13 @@
 .book-area
   = link_to "", book_notes_path(book), class: "book-area__link"
   .book-area__image
+    - if book.image.present?
+      = image_tag "#{book.image.url}", height: '170px', width: '120px'
+    - else
+      .no-image
+        = icon('far', 'image', class: "pic-icon")
+        .msg
+          No Image
   .book-area__title
     = "#{book.title}"
   .book-area__author

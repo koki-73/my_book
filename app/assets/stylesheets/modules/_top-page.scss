@@ -41,6 +41,9 @@
   @include book_index;
   min-height: 80vh;
   margin-top: 10px;
+  .no-image {
+    @include no_image;
+  }
 }
 
 .footer {

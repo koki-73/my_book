@@ -6,9 +6,28 @@
     padding: 20px 30px;
     .book-image {
       width: 200px;
-      height: 250px;
-      background-color: khaki;
+      height: 280px;
       margin: 0 auto;
+    }
+    img {
+      object-fit: contain;
+    }
+    .no-image {
+      margin: auto;
+      padding-top: 80px;
+      background-color: #dddddd;
+      height: 250px;
+      color: white;
+      .pic-icon {
+        display: block;
+        font-size: 50px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .msg {
+        font-size: 28px;
+        text-align: center;
+      }
     }
     .book-title {
       font-size: 25px;
@@ -17,6 +36,7 @@
     .book-author {
       font-size: 15px;
       color: $gray;
+      margin-bottom: 30px;
     }
     .finish-reading-btn {
       @include btn();

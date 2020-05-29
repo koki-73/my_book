@@ -3,15 +3,52 @@
   font-size: 20px;
   margin: 30px;
 }
-
-
+.input-area {
+  width: 500px;
+  margin: 0 auto;
+  h3 {
+    width: 130px;
+    font-size: 18px;
+    display: inline-block;
+    color: $gray;
+  }
+  span.form-require {
+    @include required;
+  }
+  span.form-optional {
+    @include required;
+    background-color: lightgrey;
+  }
+  #book-image-preview {
+    width: 150px;
+    height: 210px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  img.book-image {
+    width: 150px;
+    height: 210px;
+  }
+  .no-image {
+    @include no_image;
+    width: 150px;
+    height: 210px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  #book-image-form {
+    display: none;
+  }
+}
 
 .title-field, .author-field {
   width: 500px;
   height: 50px;
   display: block;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   border: 1px solid $light_blue;
   padding: 5px;
 }

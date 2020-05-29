@@ -2,7 +2,13 @@
 
   .left-content
     .book-image
-      = image_tag "#{@book.image.url}", height: '250px', width: '200px'
+      - if @book.image.present?
+        = image_tag "#{@book.image.url}", height: '280px', width: '200px'
+      - else
+        .no-image
+          = icon('far', 'image', class: "pic-icon")
+          .msg
+            No Image
 
     .book-title
       = @book.title

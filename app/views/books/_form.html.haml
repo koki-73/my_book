@@ -1,14 +1,38 @@
 
 .register-book-form
-  = form_with(model: book, local:true) do |f|
-    .book-title-form
-      = f.text_field :title, value: book.title, placeholder: "タイトルを入力してください", class: "title-field"
-    .book-author-form
-      = f.text_field :author, value: book.author, placeholder: "著者を入力してください", class: "author-field"
-    .book-image-form
-      = f.file_field :image, class: "image-field"
+  = form_with(model: @book, local:true) do |f|
+    .input-area
+      .input-area-title
+        %h3.form-title
+          本の表紙
+        %span.form-optional
+          任意
+      #book-image-preview
+        %label#book-image
+          - if @book.image.blank?
+            .no-image
+              = icon('far', 'image', class: "pic-icon")
+              .msg
+                No Image
+          - else
+            = image_tag "#{@book.image.url}", class: "book-image"
+          = f.file_field :image, id: "book-image-form"
+    .input-area
+      .input-area-title
+        %h3.form-title
+          本のタイトル
+        %span.form-require
+          必須
+      = f.text_field :title, value: @book.title, placeholder: "タイトルを入力してください", class: "title-field"
+    .input-area
+      .input-area-title
+        %h3.form-title
+          本の著者
+        %span.form-require
+          必須
+      = f.text_field :author, value: @book.author, placeholder: "著者を入力してください", class: "author-field"
     .submit-form
-      - if book.id
+      - if @book.id
         = f.submit "更新", class: "book-submit-btn"
       - else
         = f.submit "追加", class: "book-submit-btn"
