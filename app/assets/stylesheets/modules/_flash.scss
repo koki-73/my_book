@@ -1,12 +1,12 @@
 .notifications {
   .notice {
-    background-color: $flash_color;
+    background-color: $notice_color;
     color: #fff;
     text-align: center;
   }
 
-  .alert {
-    background-color: $flash_color;
+  .alert, .error {
+    background-color: $alert_color;
     color: #fff;
     text-align: center;
   }

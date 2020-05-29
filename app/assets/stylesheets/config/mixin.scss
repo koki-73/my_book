@@ -59,6 +59,9 @@
     &__image {
       width: 120px;
       height: 170px;
+      img {
+        object-fit: contain;
+      }
     }
     &__title {
       font-size: 15px;

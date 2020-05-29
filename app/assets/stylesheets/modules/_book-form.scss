@@ -29,6 +29,7 @@
   img.book-image {
     width: 150px;
     height: 210px;
+    object-fit: contain;
   }
   .no-image {
     @include no_image;

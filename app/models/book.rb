@@ -13,4 +13,6 @@ class Book < ApplicationRecord
     return Book.all unless search
     Book.where('title LIKE(?) OR author LIKE(?)', "%#{search}%", "%#{search}%")
   end
+
+  default_scope -> { order(created_at: :desc) }
 end
