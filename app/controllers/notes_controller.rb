@@ -61,9 +61,13 @@ class NotesController < ApplicationController
     @reviews = @note.reviews
     @action_plans = @note.action_plans
     @comment = Comment.new
-    @commnets = Comment.where(note_id: params[:id]).includes(:user)
-    @like = Like.new
+    @comments = Comment.where(note_id: params[:id]).includes(:user)
     @likes = Like.where(note_id: params[:id])
+    if current_user&.already_liked?(@note)
+      @like = Like.find_by(note_id: @note.id, user_id: current_user.id)
+    else
+      @like = Like.new
+    end
   end
 
   def destroy

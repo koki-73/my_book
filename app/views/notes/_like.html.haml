@@ -3,13 +3,13 @@
     .like-area__message
       %p いいねしたらコメントしよう
     .like-area__btn
-      = link_to book_note_like_path(book.id, note.id), method: :delete, class: "like-btn" do
+      = link_to book_note_like_path(book.id, note.id, @like.id), method: :delete, class: "like-btn", remote: true do
         = icon('fa', 'heart', class: "liked-icon")
       = " #{likes.length}"
   - else
     .like-area__message
       %p 気に入ったらいいねしよう
     .like-area__btn
-      = link_to book_note_likes_path(book.id, note.id), method: :post, class: "like-btn" do
+      = link_to book_note_likes_path(book.id, note.id), method: :post, class: "like-btn", remote: true do
         = icon('far', 'heart', class: "like-icon")
       = " #{likes.length}"

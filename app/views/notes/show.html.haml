@@ -35,14 +35,14 @@
           .summary-slide__title
             = summary.title
           .summary-slide__content
-            = summary.content
+            = simple_format(summary.content)
 
     %h2.slide-title
       感想
     .review-area
       - @reviews.each do |review|
         - if review.content != ""
-          = review.content
+          = simple_format(review.content)
         - else
           感想はまだ書いていません
 
@@ -51,12 +51,13 @@
     .action-plan-area
       - @action_plans.each do |action_plan|
         - if action_plan.content != ""
-          = action_plan.content
+          = simple_format(action_plan.content)
         - else
           アクションプランはまだ書いていません
 
   - if user_signed_in?
-    = render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
+    #like-link{ id: @note.id }
+      = render partial: 'like', locals: { note: @note, book: @book, likes: @likes }
 
     .comments-wrapper
       .comment-form
@@ -66,11 +67,10 @@
           .btn-area
             = f.submit "送信", class: "comment-submit-btn"
 
-
       .comments
         - if @comments
           %p コメント一覧
-          - @commnets.each do |comment|
+          - @comments.each do |comment|
             .comment
               .comment__content
                 = comment.content

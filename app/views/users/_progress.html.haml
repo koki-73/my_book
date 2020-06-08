@@ -1,0 +1,16 @@
+.progress-tag
+  Lv.
+%span.progress-level
+  - if action_plan.progress.blank?
+    = 0
+  - else
+    = action_plan.progress
+.count-area
+  #count-down
+    - unless action_plan.progress == 0 || action_plan.progress.blank?
+      = link_to "ー", count_down_action_plan_path(action_plan.id), method: :patch, remote: true
+  #count-up
+    - if action_plan.progress < 5
+      = link_to "＋", count_up_action_plan_path(action_plan.id), method: :patch, remote: true
+    - else
+      = "　"

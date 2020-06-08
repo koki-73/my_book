@@ -23,11 +23,96 @@
     padding: 10px;
     background-color: #fafafa;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    overflow: auto;
     .right-content__title {
       text-align: center;
+      font-size: 25px;
       p {
         display: inline-block;
-        @include marker;
+      }
+    }
+    #edit-progress-btn {
+      width: 80px;
+      display: inline-block;
+      font-size: 12px;
+      color: $light_blue;
+      margin-right: 3px;
+    }
+    #progress-question {
+      font-size: 12px;
+      color: $light_blue;
+    }
+    .edit-progress-area {
+      position: relative;
+    }
+    .progress-explain {
+      display: none;
+      position: absolute;
+      max-width: 400px;
+      margin-top: 5px;
+      left: 0;
+      right: 0;
+      top: 28px;
+      z-index: 1;
+      padding: 15px;
+      border-radius: 6px;
+      background: #eee;
+      color: #333;
+      line-height: 1.5;
+      text-align: center;
+      font-size: 14px;
+    }
+    .progress-explain::before {
+      content: "";
+      display: block;
+      top: -8px;
+      left: 84px;
+      border-style: solid;
+      border-color: transparent transparent #eee transparent;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 0 8px 8px 8px;
+    }
+    #action-plan-index {
+      .action-plan {
+        display: flex;
+        position: relative;
+        border-top: 1px solid #eee;
+        margin-bottom: 5px;
+        .progress-tag {
+          display: inline-block;
+        }
+        span.progress-level {
+          font-size: 23px;
+        }
+        .count-area {
+          display: flex;
+          font-size: 10px;
+          justify-content: flex-end;
+          a {
+            display: inline-block;
+            margin-left: 3px;
+            text-decoration: none;
+            color: $light_blue;
+          }
+        }
+        &__progress {
+          min-width: 40px;
+        }
+        &__content {
+          margin-left: 20px;
+          margin-top: 6px;
+          padding-right: 30px;
+        }
+        &__edit-link {
+          position: absolute;
+          right: 5px;
+          top: 5px;
+          a {
+            color: #888;
+          }
+        }
       }
     }
   }
@@ -70,7 +155,7 @@
 }
 
 
-.count-area {
+.user-count-area {
   display: grid;
   grid-template-rows: 30px 20px;
   grid-template-columns: 100px 100px 100px;
@@ -126,8 +211,11 @@
 }
 
 .user-books-area {
-  margin-top: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 40px;
   @include book_index;
+  padding: 0;
   .no-image {
     @include no_image;
   }

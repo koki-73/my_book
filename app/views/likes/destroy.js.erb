@@ -1,2 +1,1 @@
-<%# 途中で諦めました %>
-$(".like-btn").html("<%= j(render partial: 'notes/like', locals: { note: @note, book: @book, likes: @likes}) %>")
+$("#like-link_<%= @note.id %>").html("<%= j(render partial: "notes/like", locals: { note: @note, book: @book, likes: @likes }) %>");
