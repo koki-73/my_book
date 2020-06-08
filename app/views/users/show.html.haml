@@ -82,8 +82,8 @@
           = icon('far', 'question-circle', class: "question-icon")
         .progress-explain
           達成度に応じて評価してください（０〜５）
-    -# #action-plan-index
-    -#   = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
+    #action-plan-index
+      = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
 
 .add-book-area
   = link_to "本を追加する", new_book_path, class: "add-book-btn"
