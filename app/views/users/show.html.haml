@@ -82,23 +82,8 @@
           = icon('far', 'question-circle', class: "question-icon")
         .progress-explain
           達成度に応じて評価してください（０〜５）
-    #action-plan-index
-      = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
-      -# - @user.action_plans.each do |action_plan|
-      -#   .action-plan
-      -#     #action-plan__progress
-      -#       .progress-tag
-      -#         Lv.
-      -#       %span.progress-level
-      -#         = action_plan.progress
-      -#       .count-area
-      -#         #count-down
-      -#           = link_to "ー", count_down_action_plan_path(action_plan.id), method: :patch, remote: true
-      -#         #count-up
-      -#           = link_to "＋", action_plan_path(action_plan.id), method: :patch
-      -#     .action-plan__content
-      -#       = action_plan.content
-
+    -# #action-plan-index
+    -#   = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
 
 .add-book-area
   = link_to "本を追加する", new_book_path, class: "add-book-btn"
