@@ -6,7 +6,9 @@ $(function(){
     var html = `<div class="book-index">
                   <div class="book-area">
                     <a class="book-area__link" href="/books/1/notes"></a>
-                    <div class="book-area__image"></div>
+                    <div class="book-area__image">
+                      <img height="170px" width="120px" src="${book.image}">
+                    </div>
                     <div class="book-area__title">
                       ${book.title}
                     </div>
