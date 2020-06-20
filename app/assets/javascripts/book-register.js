@@ -122,9 +122,14 @@ $(function() {
     $("#modal-close-btn").on("click", function() {
       $('#overlay').fadeOut();
     })
-    $("#delete-comformation-btn__form").on("click", function() {
-      deleteBtn.click();
-      $('#overlay').fadeOut();
+  })
+
+  // users#showの更新用
+  $(".update-book-status-link").on("click", function() {
+    var dataId = $(this).data("id");
+    $(`.overlay[data-id=${dataId}]`).fadeIn();
+    $(".modal-close-btn").on("click", function() {
+      $('.overlay').fadeOut();
     })
   })
 })

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :best_books, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :book_users, only: [:create, :destroy]
+  resources :book_users, only: [:create, :update, :destroy]
   resources :action_plans do
     member do
       patch "count_down"

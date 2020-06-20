@@ -59,7 +59,7 @@
       .likes-count__title
         = "もらったいいね"
 
-    - if @user.id == current_user.id
+    - if @user == current_user
       .edit-btn-area
         .profile-edit
           = link_to "プロフィール編集", edit_user_registration_path, class: "profile-edit-btn"
@@ -116,3 +116,40 @@
           - if book.notes.find_by(user_id: params[:id])
             - note_id = book.notes.find_by(user_id: params[:id]).id
             = link_to "ノートを見る", book_note_path(book.id, note_id), class: "book-area__note-link"
+        - if @user == current_user
+          .update-book-status-link{data: {id: book.id}}
+            ステータス変更
+        
+        .overlay{data: {id: book.id}}
+          .modal-window__book-register
+            .book-info
+              .modal-book-image
+                - if book.origin_image_url.present?
+                  = image_tag "#{book.origin_image_url}", height: '140px', width: '100px'
+                - else book.image.present?
+                  = image_tag "#{book.image}", height: '140px', width: '100px'
+              .right-content
+                .modal-book-title
+                  = book.title
+                .modal-book-author
+                  - if book.author.present?
+                    = book.author
+                  - else
+                    = "不明な作者"
+                .modal-book-publisher
+                  - if book.publisher.present?
+                    = book.publisher
+                  - else
+                    = "不明な出版社"
+            .book-register-form
+              .select-message
+                選択してください
+              - @book_user = BookUser.find_by(book_id: book.id, user_id: @user.id)
+              = form_with(model: @book_user, url: {controller: 'book_users', action: 'update' }, local: true) do |f|
+                = f.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
+                = f.hidden_field :book_id, value: book.id
+                .btn-area
+                  .modal-close-btn
+                    キャンセル
+                  .submit-btn
+                    = f.submit "変更", class: "submit-form"

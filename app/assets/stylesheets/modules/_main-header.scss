@@ -2,9 +2,13 @@
   height: 50px;
   width: 100%;
   background-color: $light_blue;
+}
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 30px;
   a#book-notes, a {
     text-decoration: none;
     color: $white;

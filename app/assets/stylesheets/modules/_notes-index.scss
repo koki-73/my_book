@@ -1,9 +1,11 @@
 .contents {
   display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
   .left-content {
     width: 260px;
     height: calc(100vh - 50px);
-    padding: 20px 30px;
+    padding: 50px 30px;
     .book-image {
       width: 200px;
       height: 280px;
@@ -67,7 +69,7 @@
     
     .right-content {
       width: 100%;
-      padding: 20px 10px;
+      padding: 50px 10px;
       color: $gray;
       overflow-y: auto;
       .contents-title {
@@ -78,7 +80,6 @@
     
     .note-wrapper {
       @include note;
-      width: calc(100vw - 320px);
       position: relative;
       padding: 10px;
       margin: 0 auto;
