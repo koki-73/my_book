@@ -22,4 +22,13 @@ class User < ApplicationRecord
   def already_read?(book)
     self.book_users.exists?(book_id: book.id, user_id: self.id)
   end
+
+  def action_plan_exists?
+    self.action_plans.each do |ap|
+      if ap.content.present?
+        return true
+      end
+    end
+    return false
+  end
 end

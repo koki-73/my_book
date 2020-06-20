@@ -12,5 +12,8 @@ module MyBook
     # config.load_defaults 5.2
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/validators"]
   end
 end

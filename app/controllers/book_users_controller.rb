@@ -1,8 +1,8 @@
 class BookUsersController < ApplicationController
 
   def create
-    @book_user = BookUser.create(book_id: params[:format], user_id: current_user.id)
-    redirect_to book_notes_path(params[:format])
+    BookUser.create(book_user_params)
+    redirect_to book_notes_path(book_user_params[:book_id])
   end
   
   def destroy
@@ -14,5 +14,11 @@ class BookUsersController < ApplicationController
       @book_user.destroy
       redirect_to book_notes_path(@book_user.book_id)
     end
+  end
+
+  private
+
+  def book_user_params
+    params.permit(:status, :book_id).merge(user_id: current_user.id)
   end
 end

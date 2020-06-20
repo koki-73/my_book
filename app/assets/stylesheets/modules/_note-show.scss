@@ -40,29 +40,19 @@
 .slide {
   .top-slide {
     width: 700px;
-    height: 20vh;
     margin: 0 auto;
+    padding: 20px 0;
     margin-bottom: 10px;
-    position: relative;
     &__book-title {
-      height: 50%;
       font-size: 40px;
       color: $light_blue;
       text-align: center;
-      position: absolute;
-        top: 30%;
-        right: 0;
-        left: 0;
     }
     &__user-name {
       font-size: 18px;
-      margin-top: 10%;
       margin: 0 auto;
+      margin-top: 20px;
       text-align: center;
-      position: absolute;
-        bottom: 10px;
-        left: 0;
-        right: 0;
     }
 
   }
@@ -72,7 +62,6 @@
   .summary-area {
     @include section-content;
     .summary-slide {
-      // @include note;
       width: 600px;
       padding: 10px;
       margin: 0 auto;
@@ -85,7 +74,7 @@
       }
     }
   }
-  .review-area, .action-plan-area {
+  .review-area, .action-plan-area, .purpose-area, .memo-area {
     @include section-content;
     padding: 20px 50px;
   }
@@ -125,6 +114,7 @@
     width: 100%;
     height: 50px;
     display: inline-block;
+    padding-left: 10px;
   }
   .btn-area {
     margin-top: 10px;

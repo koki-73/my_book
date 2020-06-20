@@ -1,14 +1,16 @@
 .book-area
   = link_to "", book_notes_path(book), class: "book-area__link"
   .book-area__image
-    - if book.image.present?
-      = image_tag "#{book.image.url}", height: '170px', width: '120px'
+    - if book.origin_image_url.present?
+      = image_tag "#{book.origin_image_url}", height: '170px', width: '120px'
+    - elsif book.image.present?
+      = image_tag "#{book.image}", height: '170px', width: '120px'
     - else
-      .no-image
-        = icon('far', 'image', class: "pic-icon")
-        .msg
-          No Image
+      = image_tag "no_image.png", height: '170px', width: '120px'
   .book-area__title
     = "#{book.title}"
   .book-area__author
-    = "#{book.author} (著)"
+    - if book.author.present?
+      = "#{book.author} (著)"
+    - else
+      不明な著者

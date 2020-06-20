@@ -4,6 +4,8 @@
     .book-image
       - if @book.image.present?
         = image_tag "#{@book.image.url}", height: '280px', width: '200px'
+      - elsif true
+        = image_tag "#{@book.origin_image_url}", height: '280px', width: '200px'
       - else
         .no-image
           = icon('far', 'image', class: "pic-icon")
@@ -14,19 +16,16 @@
       = @book.title
 
     .book-author
-      = "#{@book.author} (著)"
+      = @book.author
 
     - if user_signed_in?
       .finish-reading-btn-area
         - if current_user&.already_read?(@book)
           - book_user = BookUser.find_by(book_id: @book.id, user_id: current_user.id)
-          = button_to '未読にする', book_user_path(book_user.id), method: :delete, class: "finish-reading-btn"
+          = button_to '登録を解除', book_user_path(book_user.id), method: :delete, class: "finish-reading-btn"
         - else
-          = button_to '既読にする', book_users_path(@book.id), class: "finish-reading-btn"
-
-      .edit-book-link
-        = link_to "本を編集", edit_book_path(@book.id), class: "edit-book-btn"
-
+          #book-register-link
+            登録する
     .create-note-link
       - if current_user&.already_read?(@book)
         = link_to "ノート作成", new_book_note_path(@book.id), class: "create-note-btn"
@@ -39,3 +38,38 @@
       ノート一覧
     .note-contents
       = render @notes
+
+#overlay
+  #modal-window__book-register
+    .book-info
+      #modal-book-image
+        - if @book.origin_image_url.present?
+          = image_tag "#{@book.origin_image_url}", height: '140px', width: '100px'
+        - elsif @book.image.present?
+          = image_tag "#{@book.image}", height: '140px', width: '100px'
+        - else
+          = image_tag "no_image.png", height: '140px', width: '100px'
+      .right-content
+        #modal-book-title
+          = @book.title
+        #modal-book-author
+          - if @book.author.present?
+            = @book.author
+          - else
+            = "不明な作者"
+        #modal-book-publisher
+          - if @book.publisher.present?
+            = @book.publisher
+          - else
+            = "不明な出版社"
+    .book-register-form
+      .select-message
+        選択してください
+      = form_with(model: @book_user, url: {controller: 'book_users', action: 'create' }, local:true) do |f|
+        = f.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
+        = f.hidden_field :book_id, value: @book.id
+        .btn-area
+          #modal-close-btn
+            キャンセル
+          .submit-btn
+            = f.submit "登録", class: "submit-form"

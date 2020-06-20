@@ -1,5 +1,5 @@
 - unless action_plan.content.empty?
-  .action-plan
+  .action-plan{data: {id: action_plan.id}}
     .action-plan__progress
       #action-plan__progress{ id: action_plan.id }
         = render partial: "progress", locals: { action_plan: action_plan }
@@ -9,3 +9,5 @@
       .action-plan__edit-link
         = link_to edit_book_note_path(action_plan.note.book.id, action_plan.note.id), class: "edit-note-btn" do
           = icon('fas', 'edit', class: "edit-icon")
+    .completed-icon
+      Completed

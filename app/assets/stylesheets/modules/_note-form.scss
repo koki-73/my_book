@@ -9,21 +9,23 @@
   text-align: center;
   display: block;
   padding: 20px 0;
-}
-
-
-.book-title {
-  text-align: center;
-  .book-title-link {
-    font-size: 30px;
-    font-weight: bold;
-    color: $light_blue;
-    text-decoration: none;
+  .book-title {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    .book-title-link {
+      font-size: 30px;
+      font-weight: bold;
+      color: $light_blue;
+      text-decoration: none;
+    }
   }
 }
 
+
+
 .note-form {
-  .summary-area, .review-form, .action-plan-form {
+  .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
     width: 700px;
     margin: 0 auto;
     padding: 20px;
@@ -32,7 +34,7 @@
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    .add-form-btn {
+    .add-form-btn, .add-ap-form-btn {
       font-size: 12px;
       display: inline-block;
       padding: 5px 10px;
@@ -56,6 +58,21 @@
       background-color: gray;
     }
   }
+  .js-file-group-ap {
+    width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    position: relative;
+    .delete-form-display {
+      position: absolute;
+      right: 20px;
+      top: 35px;
+      font-size: 20px;
+      color: gray;
+      border-radius: 3px;
+    }
+  }
   h2.input-area-title {
     @include section-title;
   }
@@ -68,9 +85,6 @@
       font-size: 18px;
       display: inline-block;
     }
-  }
-  span.form-require {
-    @include required;
   }
   .summary-title-field {
     padding: 0 10px;
@@ -87,11 +101,19 @@
     display: block;
     margin: 0 auto;
   }
-  .review-field, .action-plan-field {
+  .review-field, .memo-field, .purpose-field {
     padding: 5px 10px;
     width: 500px;
     height: 80px;
     margin-top: 10px;
+  }
+  .action-plan-field {
+    padding: 0 10px;
+    width: 500px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 1px solid #dadce0;
   }
   textarea, input {
     border: none;
