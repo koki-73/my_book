@@ -10,10 +10,7 @@
       #book-image-preview
         %label#book-image
           - if @book.image.blank?
-            .no-image
-              = icon('far', 'image', class: "pic-icon")
-              .msg
-                No Image
+            = image_tag "no_image.png", class: "book-image"
           - else
             = image_tag "#{@book.image.url}", class: "book-image"
           = f.file_field :image, id: "book-image-form"
@@ -31,8 +28,6 @@
         %span.form-require
           必須
       = f.text_field :author, value: @book.author, placeholder: "著者を入力してください", class: "author-field"
+    
     .submit-form
-      - if @book.id
-        = f.submit "更新", class: "book-submit-btn"
-      - else
-        = f.submit "追加", class: "book-submit-btn"
+      = f.submit "更新", class: "book-submit-btn"

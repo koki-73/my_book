@@ -205,3 +205,10 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  enums:
+    book_user:
+      status:
+        unread: "これから読む"
+        reading: "いま読んでる"
+        finished: "読み終わった"

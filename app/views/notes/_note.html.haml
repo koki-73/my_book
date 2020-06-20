@@ -1,14 +1,16 @@
-.note-wrapper
-  = link_to "", book_note_path(note.book_id, note), class: "note-link"
-  .note-info
-    .note-info__user
-      = "#{note.user.nickname}さんのノート"
-    .note-info__likes-count
-      - likes = Like.where(note_id: note.id).length
-      = "❤️#{likes}"
-  - note.summaries.each_with_index do |summary, i|
-    .note-content
-      .note-content__title
-        = "#{i + 1}. #{summary.title}"
-      .note-content__content
-        = "#{summary.content}"
+- if note.summary_exists?
+  .note-wrapper
+    = link_to "", book_note_path(note.book_id, note), class: "note-link"
+    .note-info
+      .note-info__user
+        = "#{note.user.nickname}さんのノート"
+      .note-info__likes-count
+        - likes = Like.where(note_id: note.id).length
+        = icon('fa', 'heart', class: "liked-icon")
+        = likes
+    - note.summaries.each_with_index do |summary, i|
+      .note-content
+        .note-content__title
+          = "#{i + 1}. #{summary.title}"
+        .note-content__content
+          = "#{summary.content}"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_022934) do
+ActiveRecord::Schema.define(version: 2020_06_18_032935) do
 
   create_table "action_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_022934) do
     t.integer "note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "progress"
+    t.integer "progress", default: 0
   end
 
   create_table "best_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_022934) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
     t.index ["book_id"], name: "index_book_users_on_book_id"
     t.index ["user_id"], name: "index_book_users_on_user_id"
   end
@@ -45,6 +46,9 @@ ActiveRecord::Schema.define(version: 2020_06_04_022934) do
     t.datetime "updated_at", null: false
     t.string "author"
     t.string "image"
+    t.string "api_id"
+    t.text "image_url"
+    t.string "publisher"
     t.index ["title"], name: "index_books_on_title"
   end
 
@@ -63,11 +67,29 @@ ActiveRecord::Schema.define(version: 2020_06_04_022934) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_memos_on_note_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
+  end
+
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "purposes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_purposes_on_note_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,4 +124,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_022934) do
 
   add_foreign_key "book_users", "books"
   add_foreign_key "book_users", "users"
+  add_foreign_key "memos", "notes"
+  add_foreign_key "memos", "users"
+  add_foreign_key "purposes", "notes"
 end

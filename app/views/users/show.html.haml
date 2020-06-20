@@ -74,7 +74,7 @@
   .right-content
     .right-content__title
       %p アクションプラン一覧
-    - if @user == current_user
+    - if @user == current_user && @user.action_plan_exists?
       .edit-progress-area
         #edit-progress-btn
           レベルの変更
@@ -83,8 +83,11 @@
         .progress-explain
           達成度に応じて評価してください（０〜５）
     #action-plan-index
-      = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
-
+      - if @user.action_plan_exists?
+        = render partial: "action_plan", collection: @user.action_plans, as: "action_plan"
+      - else
+        .no-action-plan-message
+          アクションプランはありません
 .add-book-area
   = link_to "本を追加する", new_book_path, class: "add-book-btn"
 
@@ -96,17 +99,19 @@
       .book-area
         = link_to "", book_notes_path(book.id), class: "book-area__link"
         .book-area__image
-          - if book.image.present?
-            = image_tag "#{book.image.url}", height: '170px', width: '120px'
+          - if book.origin_image_url.present?
+            = image_tag "#{book.origin_image_url}", height: '170px', width: '120px'
+          - elsif book.image.present?
+            = image_tag "#{book.image}", height: '170px', width: '120px'
           - else
-            .no-image
-              = icon('far', 'image', class: "pic-icon")
-              .msg
-                No Image
+            = image_tag "no_image.png", height: '170px', width: '120px'
         .book-area__title
           = "#{book.title}"
         .book-area__author
-          = "#{book.author} (著)"
+          - if book.author.present?
+            = "#{book.author} (著)"
+          - else
+            不明な著者
         .book-area__note-info
           - if book.notes.find_by(user_id: params[:id])
             - note_id = book.notes.find_by(user_id: params[:id]).id

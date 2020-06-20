@@ -80,6 +80,7 @@
         position: relative;
         border-top: 1px solid #eee;
         margin-bottom: 5px;
+        padding: 5px 0;
         .progress-tag {
           display: inline-block;
         }
@@ -108,11 +109,31 @@
         &__edit-link {
           position: absolute;
           right: 5px;
-          top: 5px;
+          top: 10px;
           a {
             color: #888;
           }
         }
+        .completed-icon {
+          font-family: 'Special Elite', cursive;
+          z-index: 2;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: rotate(-1deg);
+          transform: translate(-50%, -50%) rotate(-6deg);
+          color: #9e1717;
+          border: 2px solid #9e1717;
+          border-radius: 4px;
+          padding: 4px 4px 1px;
+        }
+      }
+      .no-action-plan-message {
+        width: 100%;
+        text-align: center;
+        margin-top: 100px;
+        font-size: 20px;
+        color: #aaa;
       }
     }
   }

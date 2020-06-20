@@ -6,6 +6,12 @@
     = form_with(model: [@book, @note], local: true) do |f|
 
       %h2.input-area-title
+        読む目的
+      .purpose-form
+        = f.fields_for :purpose do |purpose|
+          = purpose.text_field :content, placeholder: "本を読んで知りたいことなどを記入しましょう", class: "purpose-field"
+      
+      %h2.input-area-title
         本のポイント
       .summary-area
         .summary-form-area
@@ -14,15 +20,11 @@
               .input-area-title
                 %h3.form-title
                   タイトル
-                %span.form-require
-                  必須
-              = s.text_field :title, placeholder: "タイトルを入力してください", class: "summary-title-field"
+              = s.text_field :title, placeholder: "ポイントを一言で記入しましょう", class: "summary-title-field"
               .input-area-title
                 %h3.form-title
                   説明
-                %span.form-require
-                  必須
-              = s.text_area :content, placeholder: "説明を入力してください", class: "summary-content-field"
+              = s.text_area :content, placeholder: "説明を記入しましょう", class: "summary-content-field"
               .delete-form-display
                 削除する
               .delete-form-btn
@@ -35,16 +37,32 @@
       %h2.input-area-title
         感想
       .review-form
-        = f.fields_for :reviews do |r|
-          = r.text_area :content, placeholder: "感想を入力してください", class: "review-field"
+        = f.fields_for :review do |r|
+          = r.text_area :content, placeholder: "感想を記入しましょう", class: "review-field"
 
       %h2.input-area-title
         アクションプラン
       .action-plan-form
-        = f.fields_for :action_plans do |ap|
-          = ap.text_area :content, placeholder: "アクションプランを入力してください", class: "action-plan-field"
-          = ap.hidden_field :user_id, value: current_user.id
+        .action-plan-form-area
+          = f.fields_for :action_plans do |ap|
+            .js-file-group-ap{ data: {index: "#{ap.index}"} }
+              = ap.text_field :content, placeholder: "実践したいことなどを記入しましょう", class: "action-plan-field"
+              = ap.hidden_field :user_id, value: current_user.id
+              %span.delete-form-display
+                = icon('fas', 'times-circle')
+              .delete-form-btn
+              - if @note.persisted?
+                = ap.check_box :_destroy, data:{ index: ap.index }, class: "hidden-destroy"
 
+        .add-ap-form-btn
+          追加する
+
+      %h2.input-area-title
+        メモ
+      .memo-form
+        = f.fields_for :memo do |m|
+          = m.text_area :content, placeholder: "疑問や新しい発見などを記入しましょう", class: "memo-field"
+      
       .submit-btn-form
         - if @note.id
           = f.submit "更新", class: "btn"

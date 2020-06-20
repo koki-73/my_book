@@ -50,7 +50,7 @@
       @include btn_action;
     }
   
-    .create-note-btn, .edit-book-btn {
+    #book-register-link, .create-note-btn, .edit-book-btn {
       @include btn();
       display: inline-block;
       width: 150px;
@@ -60,7 +60,7 @@
       text-align: center;
       line-height: 40px;
     }
-    .create-note-btn:active, .edit-book-btn:active {
+    #book-register-link:active, .edit-book-btn:active {
       @include btn_action;
     }
   }
@@ -100,6 +100,10 @@
         }
         &__likes-count {
           font-size: 13px;
+          i {
+            color: red;
+            margin-right: 5px;
+          }
         }
       }
       .note-content {

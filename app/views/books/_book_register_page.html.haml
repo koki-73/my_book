@@ -1,0 +1,46 @@
+.book-search-area
+  .form-wrapper
+    %form.keyword-search#keyword-search
+      %input{placeholder: "キーワードで検索する", id: "keyword-form", class: "search-input"}
+      %label.submit-area
+        = icon('fas', 'search', class: "search-icon")
+        %input{type: "submit", class: "search-btn"}
+
+  .form-wrapper
+    %form.isbn-search#isbn-search
+      %input{placeholder: "ISBNで検索する", id: "isbn-form", class: "search-input"}
+      %label.submit-area
+        = icon('fas', 'search', class: "search-icon")
+        %input{type: "submit", class: "search-btn"}
+
+#overlay
+  #modal-window__book-register
+    .book-info
+      #modal-book-image
+        = image_tag "no_image.png", height: '140px', width: '100px'
+      .right-content
+        #modal-book-title
+          = "不明なタイトル"
+        #modal-book-author
+          = "不明な作者"
+        #modal-book-publisher
+          = "不明な出版社"
+    .book-register-form
+      .select-message
+        選択してください
+      = form_with(model: @book, local:true) do |f|
+        = f.text_field :image_url, value: @book.image_url, id: "image-url-form"
+        = f.text_field :title, value: @book.title, id: "title-form"
+        = f.text_field :author, value: @book.author, id: "author-form"
+        = f.text_field :publisher, value: @book.publisher, id: "publisher-form"
+        = f.text_field :api_id, value: @book.api_id, id: "api-id-form"
+        = f.fields_for :book_users do |bu|
+          = bu.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
+          = bu.hidden_field :user_id, value: current_user.id
+        .btn-area
+          #modal-close-btn
+            キャンセル
+          .submit-btn
+            = f.submit "登録", class: "submit-form"
+
+#books
