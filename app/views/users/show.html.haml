@@ -45,7 +45,8 @@
     
     .user-count-area
       .books-count
-        = "#{@books.length}"
+        - finished_books = Book.status_books(@user.id, 2)
+        = "#{finished_books.length}"
       .books-count__title
         = "読んだ本"
 
@@ -94,62 +95,26 @@
 .create-note-btn
 
 .main-content
+  .tabs-area
+    .content-tabs
+      .books-menu-tab.active
+        全て
+      .books-menu-tab
+        読み終わった
+      .books-menu-tab
+        いま読んでいる
+      .books-menu-tab
+        まだ読んでない
+  .user-books-area.show
+    = render partial: "book", collection: @books
   .user-books-area
-    - @books.each do |book|
-      .book-area
-        = link_to "", book_notes_path(book.id), class: "book-area__link"
-        .book-area__image
-          - if book.origin_image_url.present?
-            = image_tag "#{book.origin_image_url}", height: '170px', width: '120px'
-          - elsif book.image.present?
-            = image_tag "#{book.image}", height: '170px', width: '120px'
-          - else
-            = image_tag "no_image.png", height: '170px', width: '120px'
-        .book-area__title
-          = "#{book.title}"
-        .book-area__author
-          - if book.author.present?
-            = "#{book.author} (著)"
-          - else
-            不明な著者
-        .book-area__note-info
-          - if book.notes.find_by(user_id: params[:id])
-            - note_id = book.notes.find_by(user_id: params[:id]).id
-            = link_to "ノートを見る", book_note_path(book.id, note_id), class: "book-area__note-link"
-        - if @user == current_user
-          .update-book-status-link{data: {id: book.id}}
-            ステータス変更
+    - @books = Book.status_books(@user.id, 2)
+    = render partial: "book", collection: @books
+  .user-books-area
+    - @books = Book.status_books(@user.id, 1)
+    = render partial: "book", collection: @books
+  .user-books-area
+    - @books = Book.status_books(@user.id, 0)
+    = render partial: "book", collection: @books
         
-        .overlay{data: {id: book.id}}
-          .modal-window__book-register
-            .book-info
-              .modal-book-image
-                - if book.origin_image_url.present?
-                  = image_tag "#{book.origin_image_url}", height: '140px', width: '100px'
-                - else book.image.present?
-                  = image_tag "#{book.image}", height: '140px', width: '100px'
-              .right-content
-                .modal-book-title
-                  = book.title
-                .modal-book-author
-                  - if book.author.present?
-                    = book.author
-                  - else
-                    = "不明な作者"
-                .modal-book-publisher
-                  - if book.publisher.present?
-                    = book.publisher
-                  - else
-                    = "不明な出版社"
-            .book-register-form
-              .select-message
-                選択してください
-              - @book_user = BookUser.find_by(book_id: book.id, user_id: @user.id)
-              = form_with(model: @book_user, url: {controller: 'book_users', action: 'update' }, local: true) do |f|
-                = f.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
-                = f.hidden_field :book_id, value: book.id
-                .btn-area
-                  .modal-close-btn
-                    キャンセル
-                  .submit-btn
-                    = f.submit "変更", class: "submit-form"
+        

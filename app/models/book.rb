@@ -38,5 +38,14 @@ class Book < ApplicationRecord
     self[:image_url]
   end
 
+  def self.status_books(user_id, status_num)
+    book_users = BookUser.where(user_id: user_id, status: status_num)
+    books = []
+    book_users.each do |book_user|
+      books << Book.find(book_user[:book_id])
+    end
+    return books
+  end
+
   default_scope -> { order(created_at: :desc) }
 end

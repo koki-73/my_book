@@ -230,7 +230,35 @@
   }
 }
 
+.main-content {
+  .tabs-area {
+    max-width: 1000px;
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .content-tabs {
+    border-bottom: 2px solid gray;
+    display: flex;
+    .books-menu-tab {
+      width: 130px;
+      text-align: center;
+      padding: 3px 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-color: #ccc;
+      color: #fff;
+    }
+    .books-menu-tab.active {
+      background-color: $light_blue;
+    }
+  }
+}
+
 .user-books-area {
+  display: none;
+}
+.user-books-area.show {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
