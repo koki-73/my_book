@@ -81,6 +81,3 @@ describe User do
 
   end
 end
-
-
-user = User.new(nickname: "", email:"neko@gmail.com", password: "nekoneko", password_confirmation: "nekoneko")
