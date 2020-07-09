@@ -42,6 +42,7 @@ group :development, :test do
   gem 'mysql2', '>= 0.4.4', '< 0.6.0'
   gem 'dotenv-rails', groups: [:development, :test]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
