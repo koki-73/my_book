@@ -10,7 +10,6 @@ $(function(){
                     <input placeholder="ポイントを一言で記入しましょう" class="summary-title-field" type="text" name="note[summaries_attributes][${index}][title]" id="note_summaries_attributes_${index}_title">
                     <div class="input-area-title">
                       <h3 class="form-title">説明</h3>
-                      <span class="form-require">必須</span>
                     </div>
                     <textarea placeholder="説明を記入しましょう" class="summary-content-field" name="note[summaries_attributes][${index}][content]" id="note_summaries_attributes_${index}_content"></textarea>
                     <div class="delete-form-display">削除する</div>
