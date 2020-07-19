@@ -44,7 +44,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
-  gem "capybara-webkit"
+  gem 'capybara-webkit', git: 'https://github.com/thoughtbot/capybara-webkit.git'
 end
 
 group :development do

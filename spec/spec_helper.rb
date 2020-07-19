@@ -96,4 +96,5 @@ RSpec.configure do |config|
 end
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
-Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.javascript_driver = :webkit
+# Capybara.javascript_driver = :selenium_chrome_headless
