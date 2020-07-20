@@ -76,6 +76,7 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 1.3.1'
 gem 'cloudinary' , '1.11.1'
 gem 'enum_help'
+gem 'amazon-ecs'
 
 group :production do
   gem 'pg'
