@@ -16,7 +16,6 @@ feature 'note', type: :feature do
     # クリック操作でノート作成ページに移動させたい
     visit new_book_note_path(book.id)
     expect {
-      # expect(current_path).to eq new_book_note_path(book.id)
       fill_in 'note_purpose_attributes_content', with: 'purpose-test'
       fill_in 'note_summaries_attributes_0_title', with: 'summary-title-test'
       fill_in 'note_summaries_attributes_0_content', with: 'summary-content-test'
