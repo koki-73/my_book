@@ -5,12 +5,12 @@ $(function(){
     const html = `<div class="js-file-group" data-index="${index}">
                     <div class="input-area-title">
                       <h3 class="form-title">タイトル</h3>
-                      <span class="form-require">必須</span>
                     </div>
                     <input placeholder="ポイントを一言で記入しましょう" class="summary-title-field" type="text" name="note[summaries_attributes][${index}][title]" id="note_summaries_attributes_${index}_title">
                     <div class="input-area-title">
                       <h3 class="form-title">説明</h3>
                     </div>
+                    <div class="summary-content-field__dummy"></div>
                     <textarea placeholder="説明を記入しましょう" class="summary-content-field" name="note[summaries_attributes][${index}][content]" id="note_summaries_attributes_${index}_content"></textarea>
                     <div class="delete-form-display">削除する</div>
                     <div class="delete-form-btn"></div>

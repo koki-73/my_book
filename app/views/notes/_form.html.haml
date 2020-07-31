@@ -24,6 +24,7 @@
               .input-area-title
                 %h3.form-title
                   説明
+              .summary-content-field__dummy
               = s.text_area :content, placeholder: "説明を記入しましょう", class: "summary-content-field"
               .delete-form-display
                 削除する
@@ -37,6 +38,7 @@
       %h2.input-area-title
         感想
       .review-form
+        .review-field__dummy
         = f.fields_for :review do |r|
           = r.text_area :content, placeholder: "感想を記入しましょう", class: "review-field"
 
@@ -60,6 +62,7 @@
       %h2.input-area-title
         メモ
       .memo-form
+        .memo-field__dummy
         = f.fields_for :memo do |m|
           = m.text_area :content, placeholder: "疑問や新しい発見などを記入しましょう", class: "memo-field"
       

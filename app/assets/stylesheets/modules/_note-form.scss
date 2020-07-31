@@ -24,6 +24,7 @@
 
 .note-form {
   .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
+    position: relative;
     width: 700px;
     margin: 0 auto;
     padding: 20px;
@@ -47,9 +48,11 @@
     margin: 0 auto;
     margin-bottom: 20px;
     border-bottom: 2px solid #dadce0;
+    position: relative;
     .delete-form-display {
       font-size: 12px;
       display: inline-block;
+      margin-top: 10px;
       padding: 5px 10px;
       color: #fff;
       border-radius: 3px;
@@ -92,14 +95,47 @@
     margin: 0 auto;
     border-bottom: 1px solid #dadce0;
   }
+  .summary-content-field__dummy {
+    overflow: hidden;
+    visibility: hidden;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    min-height: 120px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
   .summary-content-field {
     padding: 5px 10px;
     width: 500px;
-    height: 100px;
+    height: calc(100% - 260px);
     display: block;
     margin: 0 auto;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%);
   }
-  .review-field, .memo-field, .purpose-field {
+  .review-field, .memo-field {
+    padding: 5px 10px;
+    width: 500px;
+    height: calc(100% - 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .review-field__dummy, .memo-field__dummy {
+    overflow: hidden;
+    visibility: hidden;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    min-height: 120px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .purpose-field {
     padding: 5px 10px;
     width: 500px;
     height: 80px;

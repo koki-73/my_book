@@ -72,11 +72,15 @@
         font-size: 25px;
         display: inline-block;
       }
+      &__content {
+        white-space: pre-wrap;
+      }
     }
   }
   .review-area, .action-plan-area, .purpose-area, .memo-area {
     @include section-content;
     padding: 20px 50px;
+    white-space: pre-wrap;
   }
   .summary-slide:first-child {
     border: none;

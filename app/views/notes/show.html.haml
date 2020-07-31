@@ -43,13 +43,13 @@
           .summary-slide__title
             = summary.title
           .summary-slide__content
-            = simple_format(summary.content)
+            = summary.content
 
     %h2.slide-title
       感想
     .review-area
       - if @review.content != ""
-        = simple_format(@review.content)
+        = @review.content
       - else
         感想はまだ書いていません
 
@@ -69,7 +69,7 @@
       メモ
     .memo-area
       - if @memo.content != ""
-        = simple_format(@memo.content)
+        = @memo.content
       - else
         メモはまだ書いていません
 
