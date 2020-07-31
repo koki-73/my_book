@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'amazon/ecs'
+# require 'amazon/ecs'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -19,8 +19,8 @@ module MyBook
   end
 end
 
-Amazon::Ecs.configure do |options|
-  options[:AWS_access_key_id] = Rails.application.credentials[:pa_api][:access_key_id]
-  options[:AWS_secret_key] = Rails.application.credentials[:pa_api][:secret_key]
-  options[:associate_tag] = Rails.application.credentials[:pa_api][:associate_tag]
-end
+# Amazon::Ecs.configure do |options|
+#   options[:AWS_access_key_id] = Rails.application.credentials[:pa_api][:access_key_id]
+#   options[:AWS_secret_key] = Rails.application.credentials[:pa_api][:secret_key]
+#   options[:associate_tag] = Rails.application.credentials[:pa_api][:associate_tag]
+# end
