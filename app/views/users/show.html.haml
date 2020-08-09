@@ -7,8 +7,18 @@
         = simple_format(@user.profile)
 
     .best-books-area
-      .best-books-area__title
-        = "#{@user.nickname}さんのおすすめ"
+      .best-books-area__top
+        .best-books-area__title
+          = "#{@user.nickname}さんのおすすめ"
+        .best-book-edit
+          - if @user == current_user
+            - if @best_book
+              = link_to edit_user_best_book_path(@user.id, @best_book.id), class: "best-book-edit-btn" do
+                = icon('fas', 'edit', class: "edit-icon")
+            - else
+              = link_to new_user_best_book_path(@user.id), class: "best-book-edit-btn" do
+                = icon('fas', 'edit', class: "edit-icon")
+
       .best-book
         - if @best_book
           - if @best_book.best_book_id
@@ -61,15 +71,8 @@
         = "もらったいいね"
 
     - if @user == current_user
-      .edit-btn-area
-        .profile-edit
-          = link_to "プロフィール編集", edit_user_registration_path, class: "profile-edit-btn"
-        
-        .best-book-edit
-          - if @best_book
-            = link_to "ベスト３の編集", edit_user_best_book_path(@user.id, @best_book.id), class: "best-book-edit-btn"
-          - else
-            = link_to "ベスト３の登録", new_user_best_book_path(@user.id), class: "best-book-edit-btn"
+      .profile-edit
+        = link_to "プロフィール編集", edit_user_registration_path, class: "profile-edit-btn"
 
 
   .right-content
@@ -116,5 +119,3 @@
   .user-books-area
     - @books = Book.status_books(@user.id, 0)
     = render partial: "book", collection: @books
-        
-        
