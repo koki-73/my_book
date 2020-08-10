@@ -98,7 +98,6 @@
 }
 
 @mixin section-title {
-  width: 700px;
   text-align: center;
   margin: 0 auto;
   font-size: 25px;
@@ -111,9 +110,7 @@
 }
 
 @mixin section-content {
-  width: 700px;
   margin: 0 auto;
-  padding: 20px;
   border: 1px solid #dadce0;
   border-radius: 8px;
   border-top: none;

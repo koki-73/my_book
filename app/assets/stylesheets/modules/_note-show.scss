@@ -1,21 +1,60 @@
+@media (max-width: 800px){
+  .top-slide__book-title {
+    font-size: 28px;
+  }
+  .link-area, .top-slide, h2.slide-title,
+  .like-area, .comment-form, .comment {
+    width: 80vw;
+  }
+  .summary-area, .purpose-area, .review-area,
+  .action-plan-area, .memo-area {
+    width: 80vw;
+    padding: 10px 20px;
+  }
+  .summary-slide {
+    width: 100%;
+    &__title {
+      font-size: 21px;
+    }
+  }
+}
+@media (min-width: 801px){
+  .move-page-link {
+    display: flex;
+  }
+  .top-slide__book-title {
+    font-size: 38px;
+  }
+  .link-area, .top-slide, h2.slide-title,
+  .like-area, .comment-form, .comment {
+    width: 700px;
+  }
+  .summary-area, .purpose-area, .review-area,
+  .action-plan-area, .memo-area {
+    width: 700px;
+    padding: 20px 50px;
+  }
+  .summary-slide {
+    width: 600px;
+    &__title {
+      font-size: 25px;
+    }
+  }
+}
 .note-show-wrapper {
   padding: 20px 30px 70px;
 }
 .link-area {
-  width: 700px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  .move-page-link {
-    display: flex;
-  }
   .back-page-btn, .user-page-btn {
     display: inline-block;
     width: 170px;
     padding: 5px;
     text-decoration: none;
-    color: $light_blue;
+    color: $gray;
   }
   .note-edit-area {
     display: flex;
@@ -39,12 +78,10 @@
 
 .slide {
   .top-slide {
-    width: 700px;
     margin: 0 auto;
     padding: 20px 0;
     margin-bottom: 10px;
     &__book-title {
-      font-size: 40px;
       color: $light_blue;
       text-align: center;
     }
@@ -62,14 +99,12 @@
   .summary-area {
     @include section-content;
     .summary-slide {
-      width: 600px;
-      padding: 10px;
+      padding: 10px 0;
       margin: 0 auto;
       margin-bottom: 10px;
       border-top: 1px solid #dadce0;
       &__title {
         @include marker();
-        font-size: 25px;
         display: inline-block;
       }
       &__content {
@@ -79,7 +114,6 @@
   }
   .review-area, .action-plan-area, .purpose-area, .memo-area {
     @include section-content;
-    padding: 20px 50px;
     white-space: pre-wrap;
   }
   .summary-slide:first-child {
@@ -88,7 +122,6 @@
 }
 
 .like-area {
-  width: 700px;
   font-size: 18px;
   text-align: center;
   display: flex;
@@ -108,7 +141,6 @@
 }
 
 .comment-form {
-  width: 700px;
   margin-top: 10px;
   border-top: 2px solid gray;
   margin: 0 auto;
@@ -144,7 +176,6 @@
 }
 
 .comment {
-  width: 700px;
   @include note;
   background-color: #eee;
   box-shadow: none;
