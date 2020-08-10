@@ -1,5 +1,15 @@
+@media (max-width: 800px){
+  .book-search-area, .search-book-content {
+    width: 80vw;
+  }
+}
+@media (min-width: 801px){
+  .book-search-area, .search-book-content {
+    width: 600px;
+  }
+}
+
 .book-search-area {
-  width: 600px;
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 30px;
@@ -98,7 +108,6 @@
 
 #books {
   .search-book-content {
-    width: 600px;
     margin-top: 50px;
     margin: 0 auto;
     display: flex;
@@ -113,7 +122,6 @@
     .right-content {
       width: 400px;
       .book-info {
-        height: 100px;
         color: $light_blue;
         &__title {
           font-size: 20px;
