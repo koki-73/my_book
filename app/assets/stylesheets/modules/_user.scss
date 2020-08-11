@@ -15,12 +15,15 @@
       font-size: 20px;
     }
     .nick-name-field, .email-field, .password-field {
-      width: 400px;
+      width: 80vw;
+      max-width: 400px;
       height: 40px;
       padding: 0 10px;
     }
     .profile-field {
-      width: 400px;
+      width: 80vw;
+      max-width: 400px;
+      //width: 400px;
       height: 100px;
       padding: 0 10px;
       vertical-align: top;
