@@ -1,3 +1,143 @@
+//レスポンシブ対応用
+@media (max-width: 650px){
+  .note-form-page {
+    .book-title {
+      width: 80vw;
+    }
+  }
+  h2.input-area-title {
+    width: 80vw;
+  }
+  .note-form {
+    .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
+      width: 80vw;
+      padding: 20px 5px;
+    }
+    .input-area-title {
+      margin: 20px 10px;
+    }
+    .js-file-group {
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .js-file-group-ap {
+      width: calc(100% - 10px);
+      padding: 20px 0;
+    }
+    .summary-title-field {
+      width: calc(100% - 10px);
+      padding: 0 5px;
+      font-size: 12px;
+    }
+    .summary-content-field {
+      width: calc(100% - 10px);
+      padding: 5px;
+      font-size: 12px;
+      height: calc(100% - 230px);
+      position: absolute;
+      top: 160px;
+    }
+    .purpose-field, .review-field {
+      width: 100%;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    .action-plan-field {
+      width: 100%;
+      padding: 5px;
+      font-size: 12px;
+    }
+    .review-field, .memo-field {
+      width: calc(100% - 10px);
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+}
+
+@media (max-width: 800px) and (min-width: 651px){
+  .note-form-page {
+    .book-title {
+      width: 80vw;
+    }
+  }
+  h2.input-area-title {
+    width: 80vw;
+  }
+  .note-form {
+    .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
+      width: 80vw;
+      padding: 20px;
+    }
+    .input-area-title {
+      margin: 20px 10px;
+    }
+    .js-file-group {
+      width: 100%;
+      padding: 20px 0;
+    }
+    .js-file-group-ap {
+      width: 100%;
+      padding: 20px 0;
+    }
+    .summary-title-field {
+      width: calc(100% - 10px);
+      padding: 0 5px;
+    }
+    .summary-content-field {
+      width: calc(100% - 10px);
+      padding: 5px;
+      height: calc(100% - 260px);
+      position: absolute;
+      top: 200px;
+    }
+    .purpose-field, .review-field, .action-plan-field {
+      width: 100%;
+      padding: 5px 10px;
+    }
+    .review-field, .memo-field {
+      width: calc(100% - 40px);
+      padding: 5px 10px;
+    }
+  }
+}
+
+@media (min-width: 801px){
+  .note-form-page {
+    .book-title {
+      width: 700px;
+    }
+  }
+  h2.input-area-title {
+    width: 700px;
+  }
+  .note-form {
+    .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
+      width: 700px;
+      padding: 20px;
+    }
+    .input-area-title {
+      margin: 20px 0 20px 40px;
+    }
+    .js-file-group, .js-file-group-ap {
+      width: 600px;
+      padding: 20px;
+
+    }
+    .summary-title-field, .summary-content-field, .purpose-field,
+    .review-field, .action-plan-field, .memo-field {
+      width: 500px;
+      padding: 0 10px;
+    }
+    .summary-content-field {
+      height: calc(100% - 260px);
+      position: absolute;
+      top: 200px;
+    }
+  }
+}
+
+//以下各要素のCSS
 .note-page-title {
   color: $gray;
   font-size: 20px;
@@ -10,7 +150,6 @@
   display: block;
   padding: 20px 0;
   .book-title {
-    width: 700px;
     margin: 0 auto;
     text-align: center;
     .book-title-link {
@@ -25,9 +164,7 @@
 .note-form {
   .summary-area, .review-form, .action-plan-form, .memo-form, .purpose-form {
     position: relative;
-    width: 700px;
     margin: 0 auto;
-    padding: 20px;
     border: 1px solid #dadce0;
     border-radius: 8px;
     border-top: none;
@@ -43,8 +180,6 @@
     }
   }
   .js-file-group {
-    width: 600px;
-    padding: 20px;
     margin: 0 auto;
     margin-bottom: 20px;
     border-bottom: 2px solid #dadce0;
@@ -60,8 +195,6 @@
     }
   }
   .js-file-group-ap {
-    width: 600px;
-    padding: 20px;
     margin: 0 auto;
     margin-bottom: 20px;
     position: relative;
@@ -80,7 +213,6 @@
   .input-area-title {
     color: $gray;
     text-align: left;
-    margin: 20px 0 20px 40px;
     h3 {
       width: 80px;
       font-size: 18px;
@@ -88,8 +220,6 @@
     }
   }
   .summary-title-field {
-    padding: 0 10px;
-    width: 500px;
     height: 50px;
     display: block;
     margin: 0 auto;
@@ -106,19 +236,13 @@
     overflow-wrap: break-word;
   }
   .summary-content-field {
-    padding: 5px 10px;
-    width: 500px;
-    height: calc(100% - 260px);
     display: block;
     margin: 0 auto;
     position: absolute;
-    top: 200px;
     left: 50%;
     transform: translate(-50%);
   }
   .review-field, .memo-field {
-    padding: 5px 10px;
-    width: 500px;
     height: calc(100% - 40px);
     position: absolute;
     top: 50%;
@@ -136,14 +260,10 @@
     overflow-wrap: break-word;
   }
   .purpose-field {
-    padding: 5px 10px;
-    width: 500px;
     height: 80px;
     margin-top: 10px;
   }
   .action-plan-field {
-    padding: 0 10px;
-    width: 500px;
     height: 50px;
     display: block;
     margin: 0 auto;
