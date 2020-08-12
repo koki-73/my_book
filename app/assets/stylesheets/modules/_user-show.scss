@@ -8,6 +8,7 @@
     }
     .right-content {
       width: calc(100vw - 40px);
+      max-width: 600px;
       margin: 0 auto;
       margin-top: 20px;
       margin-bottom: 20px;
@@ -24,18 +25,16 @@
     margin: 0 auto;
     .left-content {
       margin-right: 20px;
-
+      min-width: 350px;
     }
     .right-content {
       width: 100%;
-
     }
   }
 }
 .upper-content {
   .left-content {
     @include note;
-    min-width: 350px;
     height: 300px;
     padding: 10px;
     background-color: #fafafa;
