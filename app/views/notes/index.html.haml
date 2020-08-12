@@ -1,21 +1,19 @@
 .contents
   .left-content
-    .book-image
-      - if @book.image.present?
-        = image_tag "#{@book.image.url}", height: '280px', width: '200px'
-      - elsif true
-        = image_tag "#{@book.origin_image_url}", height: '280px', width: '200px'
-      - else
-        .no-image
-          = icon('far', 'image', class: "pic-icon")
-          .msg
-            No Image
+    .book-area
+      .book-image
+        - if @book.image.present?
+          = image_tag "#{@book.image.url}"
+        - elsif true  # 条件文を見直す必要あり（今はGoogleApiで画像を取得できない場合にno_imageが保存されるようになっているが、画像が何も保存されない場合にno_imageを表示させる必要あり）
+          = image_tag "#{@book.origin_image_url}"
+        - else
+          = image_tag "no_image.png"
 
-    .book-title
-      = @book.title
-
-    .book-author
-      = @book.author
+      .book-info
+        .book-title
+          = @book.title
+        .book-author
+          = @book.author
 
     - if user_signed_in?
       .finish-reading-btn-area

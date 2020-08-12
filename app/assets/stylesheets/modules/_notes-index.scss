@@ -1,127 +1,169 @@
+@media (max-width: 800px){
+  .contents {
+    .left-content {
+      width: 80vw;
+      max-width: 600px;
+      padding: 20px 0;
+      margin: 0 auto;
+      .book-area {
+        display: flex;
+        .book-image, img {
+          width: 30vw;
+          max-width: 150px;
+          height: calc(30vw * 1.4);
+          max-height: calc(150px * 1.4);
+        }
+        .book-info {
+          margin-left: 5px;
+        }
+        .book-title {
+          font-size: calc(10px + 2vw);
+        }
+        .book-author {
+          font-size: calc(8px + 1vw);
+        }
+      }
+    }
+    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+      border: none;
+      @include btn();
+      width: 30vw;
+      max-width: 150px;
+      font-size: calc(12px + .5vw);
+    }
+    .right-content {
+      width: 84vw;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 10px 2vw;
+    }
+  }
+}
+
+@media (min-width: 801px){
+  .contents {
+    display: flex;
+    .left-content {
+      width: 260px;
+      height: calc(100vh - 50px);
+      padding: 50px 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      .book-area {
+        .book-image, img {
+          width: 200px;
+          height: 280px;
+          margin: 0 auto;
+        }
+        .book-title {
+          font-size: 25px;
+        }
+        .book-author {
+          font-size: 15px;
+        }
+      }
+    }
+    #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
+      border: none;
+      @include btn();
+      width: 150px;
+    }
+    .right-content {
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 10px;
+    }
+  }
+}
+
 .contents {
-  display: flex;
   max-width: 1000px;
   margin: 0 auto;
-  .left-content {
-    width: 260px;
-    height: calc(100vh - 50px);
-    padding: 50px 30px;
-    .book-image {
-      width: 200px;
-      height: 280px;
-      margin: 0 auto;
-    }
+  .book-image {
     img {
       object-fit: contain;
     }
-    .no-image {
-      margin: auto;
-      padding-top: 80px;
-      background-color: #dddddd;
-      height: 280px;
-      color: white;
-      .pic-icon {
-        display: block;
-        font-size: 50px;
-        text-align: center;
-        margin: 0 auto;
-      }
-      .msg {
-        font-size: 28px;
-        text-align: center;
-      }
-    }
-    .book-title {
-      font-size: 25px;
-      color: $gray;
-    }
-    .book-author {
-      font-size: 15px;
-      color: $gray;
-      margin-bottom: 30px;
-    }
-    .finish-reading-btn {
-      border: none;
-      @include btn();
-      display: inline-block;
-      width: 150px;
-      height: 40px;
-      margin: 10px 0;
-    }
-    .finish-reading-btn:active {
-      @include btn_action;
-    }
-  
-    #book-register-link, .create-note-btn, .edit-book-btn {
-      @include btn();
-      display: inline-block;
-      width: 150px;
-      height: 40px;
-      margin: 10px 0;
-      text-decoration: none;
-      text-align: center;
-      line-height: 40px;
-    }
-    #book-register-link:active, .edit-book-btn:active {
-      @include btn_action;
-    }
+  }
+  .book-title {
+    color: $gray;
+  }
+  .book-author {
+    color: $gray;
+    margin-bottom: 30px;
+  }
+  .finish-reading-btn {
+    display: inline-block;
+    height: 40px;
+    margin: 10px 0;
+  }
+  .finish-reading-btn:active {
+    @include btn_action;
+  }
+
+  #book-register-link, .create-note-btn, .edit-book-btn {
+    display: inline-block;
+    height: 40px;
+    margin: 10px 0;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+  }
+  #book-register-link:active, .edit-book-btn:active {
+    @include btn_action;
   }
     
-    .right-content {
-      width: 100%;
-      padding: 50px 10px;
-      color: $gray;
-      overflow-y: auto;
-      .contents-title {
-        font-size: 25px;
-        text-align: center;
-      }
+  .right-content {
+    color: $gray;
+    overflow-y: auto;
+    .contents-title {
+      font-size: 25px;
+      text-align: center;
     }
-    
-    .note-wrapper {
-      @include note;
-      position: relative;
-      padding: 10px;
-      margin: 0 auto;
-      margin-top: 10px;
-      .note-link {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      .note-info {
-        margin-bottom: 5px;
-        display: flex;
-        justify-content: space-between;
-        &__user {
-          font-size: 20px;
-        }
-        &__likes-count {
-          font-size: 13px;
-          i {
-            color: red;
-            margin-right: 5px;
-          }
-        }
-      }
-      .note-content {
-        &__title {
-          font-size: 18px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        &__content {
-          font-size: 13px;
-          margin-left: 20px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-      }
-    }
+  }
 
+  .note-wrapper {
+    @include note;
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    .note-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .note-info {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      &__user {
+        font-size: 20px;
+      }
+      &__likes-count {
+        font-size: 13px;
+        i {
+          color: red;
+          margin-right: 5px;
+        }
+      }
+    }
+    .note-content {
+      &__title {
+        font-size: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &__content {
+        font-size: 13px;
+        margin-left: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
