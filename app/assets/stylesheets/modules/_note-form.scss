@@ -29,11 +29,16 @@
       padding: 0 5px;
       font-size: 12px;
     }
+    .summary-content-field__dummy {
+      width: calc(100% - 10px);
+      padding: 5px;
+      font-size: 12px;
+    }
     .summary-content-field {
       width: calc(100% - 10px);
       padding: 5px;
       font-size: 12px;
-      height: calc(100% - 230px);
+      height: calc(100% - 220px);
       position: absolute;
       top: 160px;
     }
@@ -46,6 +51,11 @@
       width: 100%;
       padding: 5px;
       font-size: 12px;
+    }
+    .review-field__dummy, .memo-field__dummy {
+      width: 100%;
+      font-size: 12px;
+      padding: 5px 10px;
     }
     .review-field, .memo-field {
       width: calc(100% - 10px);
@@ -84,6 +94,11 @@
       width: calc(100% - 10px);
       padding: 0 5px;
     }
+    .summary-content-field__dummy {
+      width: calc(100% - 10px);
+      padding: 5px;
+      font-size: 16px;
+    }
     .summary-content-field {
       width: calc(100% - 10px);
       padding: 5px;
@@ -93,6 +108,11 @@
     }
     .purpose-field, .review-field, .action-plan-field {
       width: 100%;
+      padding: 5px 10px;
+    }
+    .review-field__dummy, .memo-field__dummy {
+      width: 100%;
+      font-size: 16px;
       padding: 5px 10px;
     }
     .review-field, .memo-field {
@@ -127,6 +147,17 @@
     .summary-title-field, .summary-content-field, .purpose-field,
     .review-field, .action-plan-field, .memo-field {
       width: 500px;
+      padding: 5px 10px;
+    }
+    .summary-content-field__dummy {
+      width: 500px;
+      height: calc(100% - 260px);
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+    .review-field__dummy, .memo-field__dummy {
+      width: 500px;
+      font-size: 16px;
       padding: 5px 10px;
     }
     .summary-content-field {
@@ -226,10 +257,11 @@
     border-bottom: 1px solid #dadce0;
   }
   .summary-content-field__dummy {
+    margin: 0 auto;
     overflow: hidden;
     visibility: hidden;
     box-sizing: border-box;
-    padding: 5px 10px;
+    //padding: 5px 10px;
     min-height: 120px;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -250,10 +282,11 @@
     transform: translate(-50%, -50%);
   }
   .review-field__dummy, .memo-field__dummy {
+    margin: 0 auto;
     overflow: hidden;
     visibility: hidden;
-    box-sizing: border-box;
-    padding: 5px 10px;
+    //box-sizing: border-box;
+    //padding: 5px 10px;
     min-height: 120px;
     white-space: pre-wrap;
     word-wrap: break-word;
