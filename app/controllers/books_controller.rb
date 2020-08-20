@@ -29,27 +29,13 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-    @book = Book.find(params[:id])
-  end
-
-  def update
-    @book = Book.find(params[:id])
-    if @book.update(book_params)
-      redirect_to book_notes_path(@book.id)
-    else
-      flash.now[:error] = "入力項目を確認してください"
-      render :edit
-    end
-  end
-
   private
 
   def book_params
-    params.require(:book).permit(:image_url, :title, :author, :publisher, :api_id, :image, book_users_attributes: [:status, :user_id, :_destroy, :id])
+    params.require(:book).permit(:image_url, :title, :author, :publisher, :api_id, :amazon_url, book_users_attributes: [:status, :user_id, :_destroy, :id])
   end
 
   def move_to_top
-    redirect_to root_path unless user_signed_in?
+    redirect_to root_path, alert: "ログインしてください" unless user_signed_in?
   end
 end

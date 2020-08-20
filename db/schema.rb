@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_032935) do
+ActiveRecord::Schema.define(version: 2020_08_20_103148) do
 
   create_table "action_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_032935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author"
-    t.string "image"
+    t.text "amazon_url"
     t.string "api_id"
     t.text "image_url"
     t.string "publisher"

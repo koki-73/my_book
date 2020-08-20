@@ -6,12 +6,13 @@
         = icon('fas', 'search', class: "search-icon")
         %input{type: "submit", class: "search-btn"}
 
-  .form-wrapper
-    %form.isbn-search#isbn-search
-      %input{placeholder: "ISBNで検索する", id: "isbn-form", class: "search-input"}
-      %label.submit-area
-        = icon('fas', 'search', class: "search-icon")
-        %input{type: "submit", class: "search-btn"}
+  -#isbnでの検索は実装に時間がかかるためとりあえず非表示
+  -# .form-wrapper
+  -#   %form.isbn-search#isbn-search
+  -#     %input{placeholder: "ISBNで検索する", id: "isbn-form", class: "search-input"}
+  -#     %label.submit-area
+  -#       = icon('fas', 'search', class: "search-icon")
+  -#       %input{type: "submit", class: "search-btn"}
 
 #overlay
   #modal-window__book-register
@@ -34,6 +35,7 @@
         = f.text_field :author, value: @book.author, id: "author-form"
         = f.text_field :publisher, value: @book.publisher, id: "publisher-form"
         = f.text_field :api_id, value: @book.api_id, id: "api-id-form"
+        = f.text_field :amazon_url, value: @book.amazon_url, id: "url-form"
         = f.fields_for :book_users do |bu|
           = bu.select :status, BookUser.statuses_i18n.invert, {}, class: "status-form"
           = bu.hidden_field :user_id, value: current_user.id

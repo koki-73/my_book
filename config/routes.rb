@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root "books#index"
   namespace :books do
     resources :searches, only: :index
+    resources :paapi_searches, only: :index
   end
-  resources :books, only: [:index, :new, :create, :edit, :update] do
+  resources :books, only: [:index, :new, :create] do
     resources :notes do
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
