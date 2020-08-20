@@ -69,7 +69,7 @@ $(function() {
           } else {
             image_url = item.image_url
           }
-          if (item.authors == null) {
+          if (item.authors == null || item.authors.length == 0) {
             author = '不明な作者'
           } else {
             author = `${item.authors[0]}`
