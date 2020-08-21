@@ -183,7 +183,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    paapi (0.1.1)
+    paapi (0.1.2)
       aws-sigv4 (~> 1)
       http (~> 4)
     pg (1.2.3)
@@ -337,7 +337,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
-  paapi
+  paapi (~> 0.1.2)
   pg
   pry-rails
   puma (>= 3.12.6)
