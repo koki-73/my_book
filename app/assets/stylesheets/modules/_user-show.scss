@@ -5,6 +5,11 @@
       max-width: 600px;
       margin: 0 auto;
       margin-top: 20px;
+      .best-books-area {
+        .best-book, .second-best-book, .third-best-book {
+          font-size: calc(10px + 1vw);
+        }
+      }
     }
     .right-content {
       width: calc(100vw - 40px);
@@ -12,6 +17,12 @@
       margin: 0 auto;
       margin-top: 20px;
       margin-bottom: 20px;
+    }
+  }
+  .main-content {
+    .books-menu-tab {
+      font-size: calc(8px + 1vw);
+
     }
   }
 }
