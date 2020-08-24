@@ -27,7 +27,7 @@
   font-size: 22px;
   line-height: 30px;
     &__title {
-      font-size: 13px;
+      font-size: calc(8px + 1vw);
     }
 }
 

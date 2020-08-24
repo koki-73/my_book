@@ -9,6 +9,9 @@
         .best-book, .second-best-book, .third-best-book {
           font-size: calc(10px + 1vw);
         }
+        .left-word {
+          min-width: 60px;
+        }
       }
     }
     .right-content {
@@ -208,10 +211,13 @@
     .left-word {
       margin-right: 10px;
     }
+    .book-link {
+      max-width: calc(100% - 5 * (10px + 1vw));
+    }
     a {
       text-decoration: none;
       display: inline-block;
-      width: 240px;
+      max-width: calc(100%);
       color: #000000;
       white-space: nowrap;
       overflow: hidden;
@@ -224,19 +230,19 @@
 .user-count-area {
   display: grid;
   grid-template-rows: 30px 20px;
-  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: 30% 30% 30%;
   justify-content: center;
   grid-auto-flow: column;
   text-align: center;
-  .books-count {
+  .books-count, .notes-count, .likes-count {
     @include count;
   }
-  .notes-count {
-    @include count;
-  }
-  .likes-count {
-    @include count;
-  }
+  //.notes-count {
+  //  @include count;
+  //}
+  //.likes-count {
+  //  @include count;
+  //}
 }
 
 .profile-edit {

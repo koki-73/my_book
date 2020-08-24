@@ -36,7 +36,7 @@
             .left-word
               = "ベスト２"
             .book-link
-            = link_to "#{@books.find(@best_book.second_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
+              = link_to "#{@books.find(@best_book.second_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
           - else
             ベスト２はまだ登録されていません
         - else
@@ -68,7 +68,7 @@
       .likes-count
         = "#{@likes.length}"
       .likes-count__title
-        = "もらったいいね"
+        = "いいね"
 
     - if @user == current_user
       .profile-edit
