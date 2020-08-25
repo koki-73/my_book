@@ -27,7 +27,12 @@
   font-size: 22px;
   line-height: 30px;
     &__title {
-      font-size: calc(8px + 1vw);
+      @media (max-width: 800px) {
+        font-size: calc(8px + 1vw);
+      }
+      @media (min-width: 801px) {
+        font-size: 14px;
+      }
     }
 }
 

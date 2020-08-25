@@ -237,12 +237,6 @@
   .books-count, .notes-count, .likes-count {
     @include count;
   }
-  //.notes-count {
-  //  @include count;
-  //}
-  //.likes-count {
-  //  @include count;
-  //}
 }
 
 .profile-edit {
