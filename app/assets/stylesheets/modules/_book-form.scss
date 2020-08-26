@@ -187,6 +187,9 @@
       padding: 0 3px;
       display: block;
     }
+    input.submit-form:active {
+      @include btn_action;
+    }
     select.status-form {
       width: 100%;
       border-radius: 5px;
