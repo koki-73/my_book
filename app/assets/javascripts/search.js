@@ -5,7 +5,7 @@ $(function(){
   function appendBook(book) {
     var html = `<div class="book-index">
                   <div class="book-area">
-                    <a class="book-area__link" href="/books/1/notes"></a>
+                    <a class="book-area__link" href="/books/${book.id}/notes"></a>
                     <div class="book-area__image">
                       <img height="170px" width="120px" src="${book.image}">
                     </div>
