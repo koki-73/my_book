@@ -25,4 +25,5 @@
     .notifications
       - flash.each do |key, value|
         = content_tag(:div, value, class: key)
+        %button{type: "button", class: "close-btn"} &times;
     = yield

@@ -1,6 +1,10 @@
 .account-page
+  .guest
+    = link_to  users_guest_sign_in_path, method: :post, class:"guest__link" do
+      = icon('fas', 'sign-in-alt', class: "login-icon")
+      = 'ゲストでログイン'
   .account-page__title
-    ログインする
+    ログインページ
   .account-page__form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field

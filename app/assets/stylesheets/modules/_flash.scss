@@ -1,4 +1,15 @@
 .notifications {
+  position: relative;
+  .close-btn {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translate(0%, -50%);
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 0;
+  }
   .notice {
     background-color: $notice_color;
     color: #fff;
