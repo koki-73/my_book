@@ -23,7 +23,7 @@
         .finish-reading-btn-area
           - if current_user&.already_read?(@book)
             - book_user = BookUser.find_by(book_id: @book.id, user_id: current_user.id)
-            = button_to '登録を解除', book_user_path(book_user.id), method: :delete, class: "finish-reading-btn"
+            = link_to '登録を解除', book_user_path(book_user.id), method: :delete, class: "finish-reading-btn"
           - else
             #book-register-link
               登録する

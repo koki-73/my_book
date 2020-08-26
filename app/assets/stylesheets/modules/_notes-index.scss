@@ -133,16 +133,8 @@
     color: #fff;
     border-radius: 5px;
   }
-  .finish-reading-btn {
-    display: inline-block;
-    height: 40px;
-    margin: 10px 0;
-  }
-  .finish-reading-btn:active {
-    @include btn_action;
-  }
 
-  #book-register-link, .create-note-btn, .edit-book-btn {
+  #book-register-link, .create-note-btn, .edit-book-btn, .finish-reading-btn {
     display: inline-block;
     height: 40px;
     margin: 10px 0;
@@ -150,7 +142,7 @@
     text-align: center;
     line-height: 40px;
   }
-  #book-register-link:active, .edit-book-btn:active {
+  #book-register-link:active, .create-note-btn:active,  .edit-book-btn:active, .finish-reading-btn:active {
     @include btn_action;
   }
     
