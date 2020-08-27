@@ -1,3 +1,17 @@
+.app-explanation {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-top: 10px;
+  a.app-explanation__link {
+    display: inline-block;
+    text-decoration: none;
+    color: $light_blue;
+    .link-icon {
+      margin-right: 5px;
+    }
+  }
+}
 .search-form-area {
   width: 55vw;
   margin: 0 auto;
