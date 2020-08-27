@@ -1,7 +1,7 @@
 .app-explanation
   = link_to  'https://qiita.com/koki_73/items/507424c4498b48543d73#%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E', class:"app-explanation__link" do
     = icon('fas', 'external-link-alt', class: "link-icon")
-    = 'アプリの使い方'
+    = 'このサイトの使い方'
 .search-form-area
   = form_with(url: books_searches_path, local: true, method: :get, class: "search-form") do |form|
     = form.text_field :keyword, placeholder: "本を検索する", class: "search-input"
