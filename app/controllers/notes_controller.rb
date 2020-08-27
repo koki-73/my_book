@@ -9,9 +9,8 @@ class NotesController < ApplicationController
 
   def new
     @book = Book.find(params[:book_id])
-    if Note.find_by(book_id: @book.id, user_id: current_user.id)
-      flash[:error] = 'この本のノートは作成済みです'
-      redirect_to book_notes_path(@book.id)
+    if @note = Note.find_by(book_id: @book.id, user_id: current_user.id)
+      render "edit"
     else
       @note = Note.new
       @note.summaries.new
