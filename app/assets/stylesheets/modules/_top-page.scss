@@ -1,7 +1,12 @@
 .app-explanation {
   display: flex;
   justify-content: flex-end;
-  margin-right: 30px;
+  @media (max-width: 800px) {
+    margin-right: 20px;
+  }
+  @media (min-width: 801px) {
+    margin-right: 50px;
+  }
   margin-top: 10px;
   font-size: 12px;
   a.app-explanation__link {
