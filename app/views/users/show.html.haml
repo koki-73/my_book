@@ -36,7 +36,7 @@
             .left-word
               = "ベスト２"
             .book-link
-              = link_to "#{@books.find(@best_book.second_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
+              = link_to "#{@books.find(@best_book.second_book_id).title}", book_notes_path(@best_book.second_book_id), class: "best-book-link"
           - else
             ベスト２はまだ登録されていません
         - else
@@ -47,7 +47,7 @@
             .left-word
               = "ベスト３"
             .book-link
-              = link_to "#{@books.find(@best_book.third_book_id).title}", book_notes_path(@best_book.best_book_id), class: "best-book-link"
+              = link_to "#{@books.find(@best_book.third_book_id).title}", book_notes_path(@best_book.third_book_id), class: "best-book-link"
           - else
             ベスト３はまだ登録されていません
         - else
